@@ -1,0 +1,35 @@
+### Crear Administrador
+POST http://localhost:4001/api/admin
+Content-Type: application/json
+
+{
+    "name": "admin",
+    "email": "Admin@admin",
+    "password": "admin"
+}
+### Crear User
+POST http://localhost:4001/api/user
+Content-Type: application/json
+
+{
+    "name": "user",
+    "email": "Usuario2@admin",
+    "password": "admin"
+}
+###traer todos los usuarios
+GET http://localhost:4001/api/admin
+### Login
+POST http://localhost:4001/api/user/login
+Content-Type: application/json
+
+{
+    "email": "Usuario@admin",
+    "password": "admin"
+}
+### Delete User
+DELETE http://localhost:4001/api/admin/:63b7600f7fce9e951141b452
+Content-Type: application/json
+
+{
+    "idUser": '63b7645c96ce66ca7f3d539d'
+}
