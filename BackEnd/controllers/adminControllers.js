@@ -28,11 +28,12 @@ const deleteUser = async (req, res) => {
    const { idAdmin } = req.params;
    const user = await User.findById(idUser);
    const admin = await Admin.findById(idAdmin);
+   console.log(admin);
    if (!user) {
       const error = new Error('User not found');
       return res.status(400).json({ error: error.message });
    }
-   if (admin.role !== 'admin') {
+   if (admin === null) {
       const error = new Error('Invalid credentials');
       return res.status(400).json({ error: error.message });
    }
