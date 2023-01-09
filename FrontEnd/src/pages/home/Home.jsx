@@ -29,7 +29,7 @@ const Home = () => {
             <div className='containerLogin'>
                 <div className='containerElement'>
                     <figure>
-                        <img className='img-log-dos' src="../../../public/img/imgl2.png" alt="" />
+                        <img className='img-log-dos' src="../../../public/img/img-log.svg" alt="" />
                     </figure>
                     <p className='p-log'>¡Te damos la bienvenida!</p>
                     <NavLink  style={({isActive}) => isActive ? activeStyle : styleDefault} className='btn-log' to={"/login"} ><p onClick={login} >Iniciar sesión</p></NavLink>
