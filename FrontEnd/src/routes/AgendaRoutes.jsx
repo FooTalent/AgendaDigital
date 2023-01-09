@@ -16,7 +16,6 @@ const AgendaRoutes = () => {
                 <Route path='/dashboard' element={ <Dashboard/> }/>
                 <Route path='/usuarios' element={ <Usuarios/> }/>
                 <Route path='*' element={ <NotFound/> }/>
-
             </Routes>
             {/* colocar footer*/}
         </>

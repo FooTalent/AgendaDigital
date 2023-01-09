@@ -1,18 +1,10 @@
 import React from 'react';
-import Login from '../../components/Login/Login';
 import { NavLink } from 'react-router-dom';
 import './home.css';
 import '../../../src/index.css';
 
 const Home = () => {
 
-
-    const login = () => {
-        <>
-          <Login/>
-        </>
-
-    }
     let activeStyle = { 
         color: "var(--white)",
         textDecoration: "none"
@@ -32,7 +24,7 @@ const Home = () => {
                         <img className='img-log-dos' src="../../../public/img/img-log.svg" alt="" />
                     </figure>
                     <p className='p-log'>¡Te damos la bienvenida!</p>
-                    <NavLink  style={({isActive}) => isActive ? activeStyle : styleDefault} className='btn-log' to={"/login"} ><p onClick={login} >Iniciar sesión</p></NavLink>
+                    <NavLink  style={({isActive}) => isActive ? activeStyle : styleDefault} className='btn-log' to={"/login"} ><p >Iniciar sesión</p></NavLink>
                 </div>
             </div>
         </>
