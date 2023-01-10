@@ -9,7 +9,7 @@ const Dashboard = () => {
       <div className="card">
         <div className="element">
           <p className="cardTitle">Asignatura</p>
-          <p className="cardText">codigo**</p>
+          <p className="cardText">codigo*</p>
         </div>
         <div className='btn'>
           <button className="btnInfo">+informacion</button>
