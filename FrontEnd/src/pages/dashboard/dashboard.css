@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.container{
+    background-image: url(../../../public/img/fondoDashboard.svg);
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100%; 
+    background-repeat: no-repeat;
+    background-size:auto; 
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+.navDeco{
+    text-decoration: none;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    border-radius: .93753em;
+    width: 10rem;
+    height: 7rem;
+    background-color: var(--morado-f-color);
+    margin: 4rem 1rem 1rem 2rem;
+}
+.cardTitle{
+    font-family: 'Inter';
+    color: var(--light-grey);
+    margin: 2rem auto 0.5rem 1rem;
+}
+.cardText{
+    font-family: 'Inter';
+    color: var(--light-grey);
+    margin: auto auto 0.5rem 1rem
+}
+.btn{
+    display: flex;
+    flex-direction: row;
+    background-color: #6928F3;
+    justify-content: space-around;
+    margin: 1rem auto 0 auto;
+    width: 100%;
+    border-bottom-left-radius: .9375em;
+    border-bottom-right-radius: .9375em;
+}
+.btnInfo{
+   font-family: 'Poppins';
+   font-size:x-small;
+   text-align: start;
+   background-color: #6928F3;
+   border: none;
+}
+
