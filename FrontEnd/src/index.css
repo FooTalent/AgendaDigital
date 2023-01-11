@@ -1,4 +1,9 @@
 :root {
-  --letra-f-color: #000;
-  --morado-f-color: #26036F;
+  --letra-color: #000;
+  --morado-color: #26036F;
+  --btn-color: #6928F3;
+  --sideBar-dark: #6889FF;
+  --sideBar-ligth: #DAE2FE;
+  --bg-grey-color: #D9D9D9;
+  --bg-white-color: #F9F9FA;
 }
