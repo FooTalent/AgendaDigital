@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './login.css'
+import { useState } from 'react';
 
 const Login = () => {
+
+    const [hidden, setHidden] = useState("password");
+    const [img, setImg] = useState ("../../../public/img/ojo-cerrado.svg");
+
 
     let activeStyle = { 
         color: "var(--white)",
@@ -14,20 +19,15 @@ const Login = () => {
         color: "#ffff"
       };
 
-
-   const visible = () => {
-    const pass = document.getElementById('password')
-    
-    if (pass.type === 'password') {
-        pass.type = 'text'
-      
-    }
-    else if (pass.type === 'text') {
-        pass.type = 'password'
-    }
-   
- 
-}
+      const visible = () => {
+        if(hidden === "password"){
+            setHidden("text");
+            setImg("../../../public/img/ojo-abierto.svg")
+        } else{
+            setHidden("password");
+            setImg("../../../public/img/ojo-cerrado.svg")
+        }
+      }
 
     return (
         <>
@@ -43,9 +43,9 @@ const Login = () => {
                             </div>
                         </div>
                         <div className='containerPass'>
-                            <input id = "password" type = "password" className='password' placeholder='Contraseña'/> 
+                            <input id = "password" type = {hidden} className='password' placeholder='Contraseña'/> 
                             <div className='divPass'>
-                                <Link><img onClick={visible} className='iconPasswordUno'  src="../../../public/img/ojo-cerrado.svg" alt="" /></Link>
+                                <Link><img onClick={visible} className='iconPasswordUno'  src={img} alt="" /></Link>
                             </div>
                         </div>
                         <div className='divButtonSession'>
