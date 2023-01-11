@@ -4,6 +4,7 @@ const Sidlebar = () => {
     return (
         <div>
             sidlebar
+            me toca a mi
         </div>
     );
 };

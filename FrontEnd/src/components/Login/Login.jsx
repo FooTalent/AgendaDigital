@@ -2,8 +2,13 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Formik } from 'formik';
 import './login.css'
+import { useState } from 'react';
 
 const Login = () => {
+
+    const [hidden, setHidden] = useState("password");
+    const [img, setImg] = useState ("../../../public/img/ojo-cerrado.svg");
+
 
     let activeStyle = { 
         color: "var(--white)",
@@ -14,21 +19,17 @@ const Login = () => {
         textDecoration: "none",
         color: "#ffff"
       };
-
-
-   const visible = () => {
-    const pass = document.getElementById('password')
-    
-    if (pass.type === 'password') {
-        pass.type = 'text'
       
-    }
-    else if (pass.type === 'text') {
-        pass.type = 'password'
-    }
-   
- 
-}
+
+      const visible = () => {
+        if(hidden === "password"){
+            setHidden("text");
+            setImg("../../../public/img/ojo-abierto.svg")
+        } else{
+            setHidden("password");
+            setImg("../../../public/img/ojo-cerrado.svg")
+        }
+      }
 
     return (
         <>
