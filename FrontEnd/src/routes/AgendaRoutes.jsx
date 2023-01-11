@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Login from '../components/login/Login';
 import Dashboard from '../pages/dashboard/Dashboard';
 /* import Home from '../pages/home/Home'; */
 import NotFound from '../pages/notfound/NotFound';
@@ -11,8 +10,6 @@ const AgendaRoutes = () => {
         <>
             {/* colocar nav */}
             <Routes>
-                {/* <Route path='/' element={ <Home/> }/> */}
-                <Route path='/' element={ <Login/> }/>
                 <Route path='/dashboard' element={ <Dashboard/> }/>
                 <Route path='/usuarios' element={ <Usuarios/> }/>
                 <Route path='*' element={ <NotFound/> }/>
