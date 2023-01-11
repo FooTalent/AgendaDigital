@@ -1,0 +1,37 @@
+.containerSideBar {
+    display: flex;
+    flex-direction: column;
+}
+
+.routes {
+    background-color: var(--light-blue);
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    margin: 1rem 3rem;
+}
+
+.route p {
+    margin-left: .5rem;
+}
+
+.editNavLink {
+    text-decoration: none;
+}
+
+.btnClose {
+    display: flex;
+    width: 15.5rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: .5rem;
+    background-color: var(--bg-btn);
+    border-radius: 5px;
+}
+
+.btnClose p{
+    margin-left: 1.5rem;
+    color: var(--white);
+}

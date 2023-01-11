@@ -1,10 +1,12 @@
 import React from 'react';
 import "./dashboard.css"
 import { NavLink } from 'react-router-dom';
+import SideBar from '../../components/SideBar/SideBar';
 
 const Dashboard = () => {
   return (
     <div className="container">
+      <SideBar />
       <NavLink className="navDeco" to={"#"}>
       <div className="card">
         <div className="element">
