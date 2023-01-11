@@ -76,12 +76,28 @@
 .pButton {
     color: var(--white);
     margin-top: 6em;
-    border: 1px solid black;
-    width: 11em;
-    padding-top: 6%;
+    padding: 4%;
     font-weight: 500;
-
+    background-color: var(--bg-btn);
+    cursor: pointer;
+    width: 18em;
+    border-radius: 0.5rem;
+    border: none;
+    font-family: 'Inter';
 }
+
+.pButton:active {
+    background-color: var(--light-blue);
+    
+}
+
+
+.ringsLoader{
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .containerEmail {
    
@@ -182,3 +198,7 @@ input:focus {
 
  }
 
+.error {
+    color: red;
+    font-family: 'Inter';
+}
