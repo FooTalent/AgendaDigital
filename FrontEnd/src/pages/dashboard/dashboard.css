@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+.containerDashboard {
+    display: flex;
+}
+
 .container{
     background-image: url(../../../public/img/fondoDashboard.svg);
     background-position: 50% 50%;
