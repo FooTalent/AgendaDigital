@@ -36,19 +36,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .routes {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 1.5rem;
+    width: 100%;
 }
 
 .route {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin: .8rem;
+    margin: .5rem;
 }
 
 .route img {
@@ -56,6 +59,7 @@
 }
 
 .route p {
+    font-weight: 600;
     margin-left: .5rem;
 }
 
@@ -68,6 +72,7 @@
     display: flex;
     justify-self: center;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btnClose {
@@ -78,9 +83,14 @@
     padding: .5rem;
     background-color: var(--bg-btn);
     border-radius: 5px;
+    margin-top: 1rem;
 }
 
 .btnClose p{
     margin-left: 1.5rem;
     color: var(--white);
+}
+
+.activeStyle {
+    background-color: rebeccapurple;
 }

@@ -3,6 +3,18 @@ import { NavLink } from "react-router-dom";
 import "./sideBar.css";
 
 const SideBar = () => {
+
+    const activeStyle = {
+        color: "#fff",
+        backgroundColor: "#6889FF",
+        width: "90%"
+    };
+
+    const styleDefault = {
+        color: "#000",
+        backgroundColor: "#fff"
+    };
+
   return (
     <div className="containerSideBar">
       <div className="school">
@@ -14,7 +26,7 @@ const SideBar = () => {
       </div>
       <div className="containerRoutes">
         <div className="routes">
-          <NavLink className="editNavLink">
+          <NavLink style={({isActive}) => isActive ? activeStyle : styleDefault } className="editNavLink" to="/dashboard">
             <div className="route">
               <img src="../../../public/img/iconAlumnos.svg" alt="" />
               <p>Alumnos</p>
