@@ -44,4 +44,20 @@ const deleteUser = async (req, res) => {
       res.status(500).json({ error: error.message });
    }
 };
-export { newAdmin, getAllUsers, deleteUser };
+const updateAdmin = async (req, res) => {
+   const { idAdmin } = req.params;
+   const admin = await Admin.findById(idAdmin);
+   if (!admin) {
+      const error = new Error('Admin not found');
+      return res.status(400).json({ error: error.message });
+   }
+   try {
+      const updatedAdmin = await Admin.findByIdAndUpdate(idAdmin, req.body, {
+         new: true,
+      });
+      res.json(updatedAdmin);
+   } catch (error) {
+      res.status(500).json({ error: error.message });
+   }
+};
+export { newAdmin, getAllUsers, deleteUser, updateAdmin };

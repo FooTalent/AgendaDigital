@@ -27,9 +27,9 @@ Content-Type: application/json
     "password": "admin"
 }
 ### Delete User
-DELETE http://localhost:4001/api/admin/:63b7600f7fce9e951141b452
+DELETE http://localhost:4001/api/admin/63b7600f7fce9e951141b452
 Content-Type: application/json
 
 {
-    "idUser": '63b7645c96ce66ca7f3d539d'
+    "idUser": "63b762489a95c68a3db9b948"
 }
