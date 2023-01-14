@@ -42,10 +42,10 @@ const AllUsuarios = () => {
                                     <tr  key={us._id}>
                                         <td className='allusers-tbody'>{us._id}</td>
                                         <td className='allusers-tbody'>{us.name}</td>
-                                        <td className='allusers-tbody'> <img className='correo' src="./public/img/correo.png" alt="" /> {us.email}</td>
+                                        <td className='allusers-tbody'> <img className='correo' src="../public/img/correo.png" alt="" /> {us.email}</td>
                                         <td className='allusers-tbody'>{us.role}</td>
-                                        <td className='allusers-tbody2'><span> <img src="./public/img/edit.png" alt="" /> </span>
-                                        <span> <img src="./public/img/delete.png" alt="" /> </span>
+                                        <td className='allusers-tbody2'><span> <img src="../public/img/edit.png" alt="" /> </span>
+                                        <span> <img src="../public/img/delete.png" alt="" /> </span>
                                         </td>
                                        
                                     </tr>

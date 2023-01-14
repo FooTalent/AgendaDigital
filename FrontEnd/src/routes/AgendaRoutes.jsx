@@ -15,7 +15,8 @@ const AgendaRoutes = () => {
                 <Route path='/' element={ <Home/> }/>
                 <Route path='/login' element={ <Login/> }/>
                 <Route path='/dashboard' element={ <Dashboard/> }/>
-                <Route path='/usuarios' element={ <ContainerUsuarios/> }/>                
+                <Route path='/usuarios/all' element={ <ContainerUsuarios pg='all'/> }/>  
+                <Route path='/usuarios/add' element={ <ContainerUsuarios pg='add' /> }/>                 
                 <Route path='*' element={ <NotFound/> }/>
             </Routes>
             {/* colocar footer*/}
