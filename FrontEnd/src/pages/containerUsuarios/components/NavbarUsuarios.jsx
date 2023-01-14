@@ -1,9 +1,10 @@
 import React from 'react';
-
+import './navbarUsuarios.css'
 const NavbarUsuarios = () => {
     return (
-        <div>
-            navbar usuarios
+        <div className='usersAll-nav'>
+            <h3 className='userAll-btn'>& Todos los Usuarios</h3>
+            <h3 className='userAll-btn'>+ Agregar Usuario</h3>
         </div>
     );
 };
