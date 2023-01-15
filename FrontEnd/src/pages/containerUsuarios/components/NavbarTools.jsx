@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { GlobalContext } from "../../../Context/GlobalContext";
 import "./navbarTools.css";
 
-const NavbarTools = () => {
+const NavbarTools = ({captureSearch}) => {
+
+  const { orderByName, users } = useContext(GlobalContext)
+  
+
+  
+
+
   return (
     <div className="navbarTools">
       <div className="navbarTools-filter1">
-        <button>A-Z</button>
-        <input className="navbarTools-search" type="text" />
+       <span> Buscar: </span>
+        <input className="navbarTools-search" type="text" onChange={captureSearch} placeholder='Por Email, nombre o dni'/>
       </div>
       <div className="navbarTools-filter2">
         <div className="navbarTools-filter2-1">
