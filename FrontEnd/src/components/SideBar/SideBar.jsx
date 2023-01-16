@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { GlobalContext } from "../../Context/GlobalContext";
 import "./sideBar.css";
 
 const SideBar = () => {
-
-  const [disabledSB, setDisabledSB] = useState(false);
-  const [enabled, setEnabled] = useState(false);
-
+  
+  const {disabledSB, setDisabledSB, setEnabled} = useContext(GlobalContext);
 
     let activeStyles = {
         color: "#fff",
@@ -16,9 +15,8 @@ const SideBar = () => {
     };
 
     const closeBtn = () => {
-      console.log("Boton Cerrado");
       setDisabledSB(true);
-/*       setEnabled(); */
+      setEnabled(false)
     };
 
   return (

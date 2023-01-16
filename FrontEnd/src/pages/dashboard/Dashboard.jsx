@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./dashboard.css";
 import { NavLink } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar";
+import { GlobalContext } from "../../Context/GlobalContext";
 
 const Dashboard = () => {
+  const {enabled} = useContext(GlobalContext);
 
-  const enabledDashboard = () => {
 
-  };
   return (
     <div className="containerDashboard">
-      <SideBar enabledDashboard={enabledDashboard} />
-      <div className="container">
+      <SideBar />
+      <div className={`${enabled ? "container" : null}`}>
         <NavLink className="navDeco" to={"#"}>
           <div className="card">
             <div className="element">

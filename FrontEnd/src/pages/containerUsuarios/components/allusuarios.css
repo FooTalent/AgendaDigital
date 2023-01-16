@@ -1,0 +1,35 @@
+.allusers-datadable{
+    width: 100%;
+    background-color: #F4F4F4;
+    
+}
+
+.allusers-thead{
+    border-bottom: 1px solid #DFDFDF;
+    border-right: 1px solid  #DFDFDF;
+    height: 40px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+.allusers-thead:last-child{
+border-right: none;
+
+}
+
+.allusers-tbody{
+    text-align: center;
+    border-bottom: 1px solid #DFDFDF;
+    border-right: 1px solid #DFDFDF;
+    height: 50px;
+    line-height: 50px;
+}
+
+.allusers-tbody2{
+    text-align: center;
+    border-bottom: 1px solid #DFDFDF;
+    line-height: 50px;
+}
+.correo {
+    background-color: grey;
+}
