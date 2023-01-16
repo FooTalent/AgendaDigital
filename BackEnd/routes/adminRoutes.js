@@ -5,9 +5,11 @@ import {
    getAllUsers,
    newAdmin,
    updateAdmin,
+   updateUser
 } from '../controllers/adminControllers.js';
 router.post('/', newAdmin);
 router.get('/', getAllUsers);
-router.delete('/:idAdmin', deleteUser);
+router.delete('/deleteUser/:iduser', deleteUser);
 router.patch('/:idAdmin', updateAdmin);
+router.patch('/updateUser/:iduser',updateUser)
 export default router;

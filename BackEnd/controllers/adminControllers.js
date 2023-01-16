@@ -17,29 +17,18 @@ const newAdmin = async (req, res) => {
 };
 const getAllUsers = async (req, res) => {
    try {
-      const users = await User.find({});
+      const users = await User.find({status: 'created'});
       res.status(200).json(users);
    } catch (error) {
       res.status(500).json({ error: error.message });
    }
 };
 const deleteUser = async (req, res) => {
-   const { idUser } = req.body;
-   const { idAdmin } = req.params;
-   const user = await User.findById(idUser);
-   const admin = await Admin.findById(idAdmin);
-   console.log(admin);
-   if (!user) {
-      const error = new Error('User not found');
-      return res.status(400).json({ error: error.message });
-   }
-   if (admin === null) {
-      const error = new Error('Invalid credentials');
-      return res.status(400).json({ error: error.message });
-   }
+   const { iduser } = req.params;
+
    try {
-      await User.findByIdAndRemove(idUser);
-      res.json({ message: 'User deleted successfully' });
+     const userdel =  await User.findByIdAndUpdate(iduser,{status:'deleted'},{new: true});
+      res.json({ message: 'User deleted successfully', users: userdel });
    } catch (error) {
       res.status(500).json({ error: error.message });
    }
@@ -60,4 +49,20 @@ const updateAdmin = async (req, res) => {
       res.status(500).json({ error: error.message });
    }
 };
-export { newAdmin, getAllUsers, deleteUser, updateAdmin };
+
+
+const updateUser = async (req, res) => {
+const {iduser} = req.params;
+
+try {
+   const updateuser = await User.findByIdAndUpdate(iduser, req.body,{
+      new:true
+   })
+   res.status(401).json(updateuser)
+} catch (error) {
+   res.status(500).json({ error: error.message });
+}
+
+}
+
+export { newAdmin, getAllUsers, deleteUser, updateAdmin, updateUser };
