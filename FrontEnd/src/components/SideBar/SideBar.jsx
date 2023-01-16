@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./sideBar.css";
 
 const SideBar = () => {
+
+  const [disabledSB, setDisabledSB] = useState(false);
+  const [enabled, setEnabled] = useState(false);
+
 
     let activeStyles = {
         color: "#fff",
@@ -11,10 +15,17 @@ const SideBar = () => {
         marginLeft: "0"
     };
 
+    const closeBtn = () => {
+      console.log("Boton Cerrado");
+      setDisabledSB(true);
+/*       setEnabled(); */
+    };
+
   return (
-    <div className="containerSideBar">
+    <div className={`containerSideBar ${disabledSB ? "disabledSB" : null}`}>
       <div className="school">
         <p>ESCUELA</p>
+        <div onClick={closeBtn} className="btnCloseSideBar">X</div>
       </div>
       <div className="user">
         <img src="./img/admin.svg" alt="imagen de usuario" />
@@ -71,7 +82,6 @@ const SideBar = () => {
             <p>Cerrar sesión</p>
           </div>
         </NavLink>
-
       </div>
     </div>
   );

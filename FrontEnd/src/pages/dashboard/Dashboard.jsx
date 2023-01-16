@@ -4,9 +4,13 @@ import { NavLink } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar";
 
 const Dashboard = () => {
+
+  const enabledDashboard = () => {
+
+  };
   return (
     <div className="containerDashboard">
-      <SideBar />
+      <SideBar enabledDashboard={enabledDashboard} />
       <div className="container">
         <NavLink className="navDeco" to={"#"}>
           <div className="card">
