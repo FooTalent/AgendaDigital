@@ -13,9 +13,9 @@ const AddUsuario = () => {
   const [inputPass, setInputPass] = useState("inputsForm");
 
   const validateName = (valores) => {
-    if (!valores.name) {
+    if (!valores.dni) {
       setInputName("inputsForm valueInvalid");
-    } else if (!/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/i.test(valores.name)) {
+    } else if (!/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/i.test(valores.dni)) {
       setInputName("inputsForm valueInvalid");
     } else {
       setInputName("inputsForm");
@@ -43,7 +43,7 @@ const AddUsuario = () => {
       <div className="container">
         <Formik
           initialValues={{
-            name: "",
+            dni: "",
             email: "",
             password: "",
           }}
@@ -135,7 +135,7 @@ const AddUsuario = () => {
                   <span className="titleCreate">Datos personales</span>
                 </div>
                 <div className="containerInputs">
-                  <label htmlFor="name">Nombre*</label>
+                  <label htmlFor="name">DNI*</label>
                   <Field
                     onClick={validateName}
                     className={inputName}
