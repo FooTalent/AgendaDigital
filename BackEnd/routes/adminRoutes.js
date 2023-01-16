@@ -9,5 +9,5 @@ import {
 router.post('/', newAdmin);
 router.get('/', getAllUsers);
 router.delete('/:idAdmin', deleteUser);
-router.update('/:idAdmin', updateAdmin);
+router.patch('/:idAdmin', updateAdmin);
 export default router;

@@ -1,5 +1,5 @@
 import User from '../models/User.js';
-
+import generatorJWT from '../helpers/generatorJWT.js';
 const newUser = async (req, res) => {
    const { email } = req.body;
    const existsUser = await User.findOne({ email });
@@ -28,7 +28,9 @@ const login = async (req, res) => {
       const error = new Error('Invalid credentials');
       return res.status(400).json({ error: error.message });
    } else {
-      res.status(200).json(user);
+      res.status(200).json({
+         user: user, 
+         token: generatorJWT(user._id) });
    }
 };
 export { newUser, login };
