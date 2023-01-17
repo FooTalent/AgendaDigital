@@ -9,7 +9,7 @@ const AllUsuarios = ({ search }) => {
   const [modal, setmodal] = useState(false);
   const [email, setemail] = useState("");
   const [dni, setdni] = useState(0);
-  const [id, setid] = useState('')
+  const [id, setid] = useState("");
 
   const columns = ["DNI", "E-mail", "Rol", "status", ""];
 
@@ -21,7 +21,7 @@ const AllUsuarios = ({ search }) => {
         // setusers(order);
         setusers(res.data);
       });
-  }, []);
+  }, [users]);
 
   let results = [];
 
@@ -36,30 +36,43 @@ const AllUsuarios = ({ search }) => {
   const editUsers = async (dni, email, id) => {
     setdni(dni);
     setemail(email);
-    setid(id)
+    setid(id);
     setmodal(true);
-
   };
 
-const updateUser = (e) => {
+  const updateUser = (e) => {
+    e.preventDefault();
+    axios.patch(
+      `https://agendadigital-production.up.railway.app/api/admin/updateUser/${id}`,
+      {
+        dni: Number(dni),
+        email: email,
+      }
+    );
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Usuario actualizado con exito",
+      showConfirmButton: false,
+      timer: 2000,
+    });
 
-e.preventDefault();
-axios.patch(`https://agendadigital-production.up.railway.app/api/admin/updateUser/${id}`,
-{
-dni: Number(dni),
-email: email
-})
-.then( res=> {
-  Swal.fire({
-    position: "center",
-    icon: "success",
-    title: "Usuario actualizado con exito",
-    showConfirmButton: false,
-    timer: 2000,
-  });
-})
-.catch( err => console.log(err))
-}
+    setmodal(false);
+  };
+
+  const deleteUser = (id) => {
+  axios.delete(`https://agendadigital-production.up.railway.app/api/admin/deleteUser/${id}`)
+    .then( res => {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Usuario eliminado con exito",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      console.log(res.data)
+    })
+  }
 
   return (
     <div>
@@ -102,15 +115,14 @@ email: email
                 </span>
                 <span>
                   {" "}
-                  <img src="../public/img/delete.png" alt="" />{" "}
+                  <img src="../public/img/delete.png" onClick={()=>deleteUser(us._id)} alt="" />{" "}
                 </span>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-     
-
+{/*------------------------------------ modal -------------------------------*/}
       {modal && (
         <div className="modal">
           <div className="modal-container" onSubmit={updateUser}>
@@ -118,14 +130,28 @@ email: email
               <h2 className="title">Editar Usuario</h2>
               <br />
               <label htmlFor="mail">DNI:</label>
-              <input className="inputsForm" type="text" id="dni" onChange={(e)=> setdni(e.target.value) } value={dni} />
+              <input
+                className="inputsForm"
+                type="text"
+                id="dni"
+                onChange={(e) => setdni(e.target.value)}
+                value={dni}
+              />
               <br />
               <label htmlFor="mail">Email:</label>
-              <input className="inputsForm" type="text" id="mail" onChange={(e)=> setemail(e.target.value) } value={email} />
+              <input
+                className="inputsForm"
+                type="text"
+                id="mail"
+                onChange={(e) => setemail(e.target.value)}
+                value={email}
+              />
               <br />
               <br />
               <div>
-                <button type="submit" className="btnSave">Guardar</button>
+                <button type="submit" className="btnSave">
+                  Guardar
+                </button>
                 <button className="btnReset" onClick={() => setmodal(!modal)}>
                   Cerrar
                 </button>
