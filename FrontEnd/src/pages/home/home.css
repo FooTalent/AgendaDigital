@@ -1,0 +1,133 @@
+.containerLogin{
+    background-image: url(../../../public/img/bg-nuevo.svg);
+    height: 100vh;
+    width: 100%; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.containerElement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-log-dos {
+    height: 28em;
+    width: 40em;
+}
+
+.p-log {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 190%;
+}
+
+.btn-log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+    height: 3em;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 150%;
+    background-color: var(--bg-btn);
+    border: none;
+    border-radius: 0.3em;
+    color: var(--white);
+    padding: 2% 3% 2% 3%;
+    box-shadow: 0px 3.69768px 6.1628px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Medias queries */
+
+@media screen and (max-width:690px ) {
+
+    .img-log-dos {
+        height: 20em;
+        width: 32em;
+    }
+
+    .p-log {
+        
+        font-size: 175%;
+    }
+
+    .btn-log{
+        width: 15em;
+        height: 2em;
+        font-size: 135%;
+
+    }
+    
+
+}
+
+@media screen and (max-width:535px ) {
+
+    .img-log-dos {
+        height: auto;
+        width: 22em;
+    }
+    
+    .p-log {
+        font-size: 142%;
+    }
+    
+    .btn-log {
+        width: 10em;
+        height: 1.5em;
+        font-size: 139%;
+    }
+    
+}
+
+@media screen and (max-width:360px ) {
+    
+    .img-log-dos {
+        height: auto;
+        width: 18em;}
+    
+    .p-log {
+        
+        font-size: 119%;
+    }
+    
+    .btn-log {
+        width: 9em;
+        height: 1em;
+        font-size: 127%;
+    }
+
+
+}
+@media screen and (max-width:280px ) {
+    
+    .img-log-dos {
+        height: auto;
+        width: 15em;}
+    
+    .p-log {
+        
+        font-size: 110%;
+    }
+    
+    .btn-log {
+        width: 9em;
+        height: 1em;
+        font-size: 120%;
+    }
+
+
+}

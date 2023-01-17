@@ -1,0 +1,31 @@
+.navbarTools{
+height: 40px;
+width: 100%;
+background-color: #F4F4F4;
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.navbarTools-filter1{
+    display: flex;
+    gap: 10px;
+    height: fit-content;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.navbarTools-filter2{
+    display: flex;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.navbarTools-filter2-1{
+    display: flex;
+}
+
+.navbarTools-search{
+    width: 382px;
+}

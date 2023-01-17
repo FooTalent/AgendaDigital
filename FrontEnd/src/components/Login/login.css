@@ -1,0 +1,224 @@
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-top-left-radius: 13%;
+    border-top-right-radius: 13%;
+    height: 29em;
+    width: 39em;
+    background-color: #E6E0F2;
+}
+
+.divNameSchool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--morado-f-color);
+    padding: 2% 2% 2% 2% ;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+.nameSchool {
+    color: var(--white);
+    font-size: 200%;
+    font-weight: bold;
+} 
+    
+.formLogin .titleLogin {
+    display: flex;
+    justify-content: center;
+    color: var(--morado-f-color);
+    margin-top: .5em;
+}
+
+.formLogin .titleLogin h1 {
+    border-bottom: 1px solid #C6C4C4 ;
+    padding: 0.2em 0.2em 0.5em 0.2em;
+    width: 70%;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+}
+ 
+.containerForm {
+    margin-top: 13%;
+    margin-bottom: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.divButtonSession{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26em;
+    height: 3em;
+}
+
+.divButtonSession a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 2% 2% 2%; 
+    margin-bottom: 0em;
+    margin-top: 1em;
+    width: 41%;
+    background-color: var(--bg-btn);
+    border-radius: .3em;
+    box-shadow: 2px 6px var(--light-grey);
+}
+
+.pButton {
+    color: var(--white);
+    margin-top: 4em;
+    padding: 4%;
+    font-weight: 500;
+    background-color: var(--bg-btn);
+    cursor: pointer;
+    width: 18em;
+    border-radius: 0.5rem;
+    border: none;
+    font-family: 'Inter';
+}
+
+.pButton:active {
+    background-color: var(--light-blue);
+    
+}
+
+.ringsLoader{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    display: block;
+}
+
+.containerEmail2 {  
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50%;
+}
+
+.email2{ 
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-bottom: .2%;
+    padding-top: 2%;
+    background-color: #E6E0F2;
+    width: 100%;
+}
+
+input:focus {
+    background-color: #E6E0F2;
+    
+}
+
+.password2 {
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-bottom: .2%;
+    padding-top: 2%;
+    background-color: #E6E0F2;
+    width: 100%;
+} 
+
+.valueInvalid {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: red;
+    background-color: #E6E0F2;
+}
+
+.divPass2{
+    display: flex;
+    width: 100%;
+}
+
+.containerPass2 {
+    display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 50%;
+}
+
+.error {
+    color: red;
+    font-family: 'Inter';
+    margin-top: .7em;
+}
+
+.none {
+    display: none;
+}
+
+button:disabled {
+    background-color:  none !important;
+    border: none;
+}
+
+.btnIconEmail{
+    padding: 0%;
+}
+
+.imgEmail {
+    width: 1.6em;
+    height: 1em;
+}
+
+.imgPass{
+
+    width: 1.6em;
+    height: 1.8em;
+} 
+
+.btnIconPass {
+    padding: 0%;
+    border: none;
+    background-color: #E6E0F2;
+}
+
+/* Medias queries */
+
+@media screen and (max-width:650px) {
+    .formLogin {        
+        height: 20em;
+        width: 19em;
+    }
+
+    .nameSchool {
+        font-size: 165%;
+    } 
+
+    .formLogin .titleLogin h1 {
+        font-size: 126%;
+    }
+
+    .containerEmail2 {  
+        width: 65%;
+     }
+
+     .containerPass2 {
+       width: 65%;
+    }
+
+    .divButtonSession{
+        width: 13em;
+        height: 2.5em;
+    }
+}

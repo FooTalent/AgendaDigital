@@ -1,22 +1,26 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Login from '../components/Login/Login';
+
+import ContainerUsuarios from '../pages/containerUsuarios/ContainerUsuarios';
 import Dashboard from '../pages/dashboard/Dashboard';
-import Home from '../pages/home/Home';
-import Login from '../pages/login/Login';
+import Home from '../pages/home/Home'; 
 import NotFound from '../pages/notfound/NotFound';
-import Usuarios from '../pages/usuarios/Usuarios';
+
 
 const AgendaRoutes = () => {
+
+    
     return (
         <>
-            {/* colocar nav */}
+           
             <Routes>
                 <Route path='/' element={ <Home/> }/>
-                <Route path='/dashboard' element={ <Dashboard/> }/>
                 <Route path='/login' element={ <Login/> }/>
-                <Route path='/usuarios' element={ <Usuarios/> }/>
+                <Route path='/dashboard' element={ <Dashboard/> }/>
+                <Route path='/usuarios/all' element={ <ContainerUsuarios pg='all'/> }/>  
+                <Route path='/usuarios/add' element={ <ContainerUsuarios pg='add' /> }/>                 
                 <Route path='*' element={ <NotFound/> }/>
-
             </Routes>
             {/* colocar footer*/}
         </>

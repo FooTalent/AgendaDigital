@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Sidlebar = () => {
+const Filter = () => {
     return (
         <div>
-            sidlebar
+            
         </div>
     );
 };
 
-export default Sidlebar;
+export default Filter;
