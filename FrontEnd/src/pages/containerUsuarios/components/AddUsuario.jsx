@@ -12,31 +12,44 @@ const AddUsuario = () => {
   const [inputEmail, setInputEmail] = useState("inputsForm");
   const [inputPass, setInputPass] = useState("inputsForm");
 
-  const validateName = (valores) => {
-    if (!valores.dni) {
+  const validateDni = (valores) => {
+    if (!valores.target.value) {
+      setInputEmail('')
       setInputName("inputsForm valueInvalid");
-    } else if (!/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/i.test(valores.dni)) {
+    } else if (valores.target.value.length < 6) {
+      setInputEmail('')
       setInputName("inputsForm valueInvalid");
     } else {
-      setInputName("inputsForm");
+      setInputEmail('')
+      setInputName("inputsForm valueValid");
     }
   };
 
   const validateEmail = (valores) => {
-    if (!valores.email) {
+    
+    if (!valores.target.value) {
+      setInputEmail('')
       setInputEmail("inputsForm valueInvalid");
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(valores.email)
-    ) {
-      setInputEmail("inputsForm valueInvalid");
-    } else {
-      setInputEmail("inputsForm");
+      
     }
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(valores.target.value)) {
+      
+      setInputEmail('')
+      setInputEmail("inputsForm valueInvalid");
+    }
+    else {
+      setInputEmail('')
+      setInputEmail("inputsForm valueValid");
+      
+    }
+
+  
   };
-  const validatePass = (valores) =>
-    !valores.password
-      ? setInputPass("inputsForm valueInvalid ")
-      : setInputPass("inputsForm");
+
+  // const validatePass = (valores) =>
+  //   !valores.password
+  //     ? setInputPass("inputsForm valueInvalid ")
+  //     : setInputPass("inputsForm");
 
   return (
     <>
@@ -47,83 +60,26 @@ const AddUsuario = () => {
             email: "",
             password: "",
           }}
-          validate={(values) => {
-            const errors = {};
-            validateName(values);
-            validateEmail(values);
-            validatePass(values);
-
-            return errors;
-          }}
-          onSubmit={(values, { resetForm }) => {
-            resetForm();
-            console.log("creado");
-            setFormSubmmit(true);
-            setTimeout(() => setFormSubmmit(false), 2000);
-            axios
-              .get("https://agendadigital-production.up.railway.app/api/admin")
-              .then((res) => {
-                let exist = "";
-                res.data.map((el) =>
-                  el.email === values.email ? (exist = el.email) : exist
-                );
-                console.log(exist.length);
-
-                if (exist.length > 0) {
-                  Swal.fire({
+        onSubmit={(values, { resetForm })=>{
+          resetForm();
+          axios.post("https://agendadigital-production.up.railway.app/api/user",values)
+          .then( res => console.log(res.data))
+          .catch( err => {
+            console.log(err);
+                    Swal.fire({
                     position: "center",
                     icon: "warning",
                     title: "Ya existe un usuario creado con ese email",
                     showConfirmButton: false,
                     timer: 2000,
                   });
-                } else {
-                  axios
-                    .post(
-                      "https://agendadigital-production.up.railway.app/api/user",
-                      values
-                    )
-                    .then((res) => {
-                      setInputEmail("inputsForm");
-                      setInputName("inputsForm");
-                      setInputPass("inputsForm");
-                      Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Usuario creado con exito",
-                        showConfirmButton: false,
-                        timer: 1500,
-                      });
-                    })
-                    .catch((err) => {
-                      setInputEmail("inputsForm");
-                      setInputName("inputsForm");
-                      setInputPass("inputsForm");
-                      Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: "Error 404",
-                        showConfirmButton: false,
-                        timer: 1500,
-                      });
-                    });
-                }          
-              })
-              .catch((err) => {
-                setInputEmail("inputsForm");
-                setInputName("inputsForm");
-                setInputPass("inputsForm");
-                Swal.fire({
-                  position: "center",
-                  icon: "error",
-                  title: "Error 404",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-              });          
-          }}
+          } )
+        }}
+
+          
         >
           {() => (
+
             <div className="containerFormAdd">
               <Form className="">
                 <div className="containerTitleCreate">
@@ -135,33 +91,37 @@ const AddUsuario = () => {
                   <span className="titleCreate">Datos personales</span>
                 </div>
                 <div className="containerInputs">
-                  <label htmlFor="name">DNI*</label>
+                  <label htmlFor="dni">DNI*</label>
                   <Field
-                    onClick={validateName}
+                    onBlur={validateDni}
                     className={inputName}
-                    type="text"
-                    id="name"
-                    name="name"
+                    type="number"
+                    id="dni"
+                    name="dni"
+                    
                   />
                 </div>
                 <div className="containerInputs">
                   <label htmlFor="email">E-mail*</label>
                   <Field
-                    onClick={validateEmail}
+                    onBlur={validateEmail}
                     className={inputEmail}
                     id="email"
                     type="email"
                     name="email"
+                    
                   />
                 </div>
                 <div className="containerInputs">
                   <label htmlFor="password">Contraseña*</label>
                   <Field
-                    onClick={validatePass}
+                   
                     id="password"
                     name="password"
-                    type="text"
+                    type="password"
+                    autoComplete="true"
                     className={inputPass}
+                  
                   />
                 </div>
                 <div className="containerBtnCreate">
@@ -169,14 +129,16 @@ const AddUsuario = () => {
                     className="btnCreate"
                     type="submit"
                     value="Crear usuario"
+                    id='new'
                   />
-                  <Field className="btnReset" type="reset" value="Limpiar" />
+                  <Field className="btnReset" type="reset" id='reset' value="Limpiar" />
                 </div>
                 <p>Los campos con * son obligatorios.</p>
               </Form>
             </div>
           )}
         </Formik>
+        
       </div>
     </>
   );
