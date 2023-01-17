@@ -2,12 +2,16 @@ import React from "react";
 import "./dashboard.css";
 import { NavLink } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar";
+import NavBar from "../../components/Navbar/NavBar";
 
 const Dashboard = () => {
   return (
+    <>
     <div className="containerDashboard">
       <SideBar />
+      
       <div className="container">
+      
         <NavLink className="navDeco" to={"#"}>
           <div className="card">
             <div className="element">
@@ -58,6 +62,7 @@ const Dashboard = () => {
         </NavLink>
       </div>
     </div>
+    </>
   );
 };
 

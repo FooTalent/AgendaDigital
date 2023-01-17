@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "./allusuarios.css";
 
 const AllUsuarios = ({ search }) => {
-  const { users, setusers } = useContext(GlobalContext);
+  const { users, setusers, pagxhoja, pagActual, firstindex} = useContext(GlobalContext);
   const [modal, setmodal] = useState(false);
   const [email, setemail] = useState("");
   const [dni, setdni] = useState(0);
@@ -23,13 +23,16 @@ const AllUsuarios = ({ search }) => {
       });
   }, [users]);
 
-  let results = [];
+let results = []
+  
 
   const searchName = () => {
-    results = users.filter(
-      (res) => res.email.includes(search) || res.dni.toString().includes(search)
-    );
+   results = users.filter(
+      (res) => res.email.includes(search) || res.dni.toString().includes(search));
+      // setresults(newresults)
   };
+
+ 
 
   searchName();
 
@@ -61,18 +64,21 @@ const AllUsuarios = ({ search }) => {
   };
 
   const deleteUser = (id) => {
-  axios.delete(`https://agendadigital-production.up.railway.app/api/admin/deleteUser/${id}`)
-    .then( res => {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Usuario eliminado con exito",
-        showConfirmButton: false,
-        timer: 2000,
+    axios
+      .delete(
+        `https://agendadigital-production.up.railway.app/api/admin/deleteUser/${id}`
+      )
+      .then((res) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Usuario eliminado con exito",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        console.log(res.data);
       });
-      console.log(res.data)
-    })
-  }
+  };
 
   return (
     <div>
@@ -87,7 +93,7 @@ const AllUsuarios = ({ search }) => {
           </tr>
         </thead>
         <tbody>
-          {results.map((us) => (
+          {results.splice(firstindex, pagxhoja).map((us) => (
             <tr key={us._id}>
               <td className="allusers-tbody">{us.dni}</td>
 
@@ -115,14 +121,19 @@ const AllUsuarios = ({ search }) => {
                 </span>
                 <span>
                   {" "}
-                  <img src="../public/img/delete.png" onClick={()=>deleteUser(us._id)} alt="" />{" "}
+                  <img
+                    src="../public/img/delete.png"
+                    onClick={() => deleteUser(us._id)}
+                    alt=""
+                  />{" "}
                 </span>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-{/*------------------------------------ modal -------------------------------*/}
+      <p>Página {pagActual +1} de { Math.ceil(users.length / pagxhoja) }</p>
+      {/*------------------------------------ modal -------------------------------*/}
       {modal && (
         <div className="modal">
           <div className="modal-container" onSubmit={updateUser}>
@@ -152,7 +163,7 @@ const AllUsuarios = ({ search }) => {
                 <button type="submit" className="btnSave">
                   Guardar
                 </button>
-                <button className="btnReset" onClick={() => setmodal(!modal)}>
+                <button className="btnReset"  onClick={() => setmodal(!modal)}>
                   Cerrar
                 </button>
               </div>

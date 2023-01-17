@@ -4,7 +4,7 @@ import './navbar.css'
 const NavBar = () => {
     return (
         <div className='container'>
-            <div className="search">
+            {/* <div className="search">
                 <input type="text" />
             </div>
             <div className="icon">
@@ -16,7 +16,9 @@ const NavBar = () => {
                     <img src="" alt="dropdown" />
                 </button>
                 </div>
-            </div>
+            </div> */}
+
+            <img src="../public/img/navbar.jpg" alt="" />
         </div>
     );
 };
