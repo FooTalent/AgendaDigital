@@ -7,21 +7,22 @@ import "./allusuarios.css";
 const AllUsuarios = ({ search }) => {
   const { users, setusers } = useContext(GlobalContext);
 
-  const columns = ["S/N", "Nombre", "E-mail", "Rol", "", ""];
+  const columns = ["DNI", "E-mail", "Rol", "status", ""];
 
   useEffect(() => {
     axios
       .get("https://agendadigital-production.up.railway.app/api/admin")
       .then((res) => {
-        let order = res.data.sort((a, b) => a.name.localeCompare(b.name));
-        setusers(order);
+        // let order = res.data.sort((a, b) => a.name.localeCompare(b.dni));
+        // setusers(order);
+        setusers(res.data)
       });
   }, []);
 
   let results = [];
 
   const searchName = () => {
-    results = users.filter((res) => res.name.includes(search) || res._id.includes(search) || res.email.includes(search) );
+    results = users.filter((res) =>   res.email.includes(search) );
   };
  
   searchName();
@@ -68,8 +69,8 @@ const AllUsuarios = ({ search }) => {
         <tbody>
           {results.map((us) => (
             <tr key={us._id}>
-              <td className="allusers-tbody">{us._id}</td>
-              <td className="allusers-tbody">{us.name}</td>
+              <td className="allusers-tbody">{us.dni}</td>
+              
               <td className="allusers-tbody">
                 {" "}
                 <img
@@ -80,6 +81,7 @@ const AllUsuarios = ({ search }) => {
                 {us.email}
               </td>
               <td className="allusers-tbody">{us.role}</td>
+              <td className="allusers-tbody">{us.status}</td>
               <td className="allusers-tbody2">
                 <span>
                   {" "}

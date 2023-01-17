@@ -22,10 +22,13 @@ const ContainerUsuarios = ({pg}) => {
       <SideBar />
       <div className="sol-users">
         <NavbarUsuarios />
-        <NavbarTools captureSearch={captureSearch} />
+       
         {
           pg === 'all' ?
+          <>
+          <NavbarTools captureSearch={captureSearch} />
           <AllUsuarios search={search} />
+          </>
           :
           <AddUsuario/>
         }        
