@@ -58,7 +58,7 @@ try {
    const updateuser = await User.findByIdAndUpdate(iduser, req.body,{
       new:true
    })
-   res.status(201).json(updateuser)
+   res.status(401).json(updateuser)
 } catch (error) {
    res.status(500).json({ error: error.message });
 }
