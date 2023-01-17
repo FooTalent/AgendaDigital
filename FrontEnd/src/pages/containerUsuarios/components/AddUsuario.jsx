@@ -5,6 +5,7 @@ import "./addusuario.css";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddUsuario = () => {
   const [formSubmmit, setFormSubmmit] = useState(false);
@@ -14,12 +15,15 @@ const AddUsuario = () => {
 
   const validateDni = (valores) => {
     if (!valores.target.value) {
+      console.log('vacio');
       setInputEmail('')
       setInputName("inputsForm valueInvalid");
     } else if (valores.target.value.length < 6) {
+      console.log('falta');
       setInputEmail('')
       setInputName("inputsForm valueInvalid");
     } else {
+      console.log('ok');
       setInputEmail('')
       setInputName("inputsForm valueValid");
     }
@@ -63,7 +67,16 @@ const AddUsuario = () => {
         onSubmit={(values, { resetForm })=>{
           resetForm();
           axios.post("https://agendadigital-production.up.railway.app/api/user",values)
-          .then( res => console.log(res.data))
+          .then( res => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Usuario Creado con Exito",
+              showConfirmButton: false,
+              timer: 2000,
+            })
+            useNavigate('../usuarios/all')
+          })
           .catch( err => {
             console.log(err);
                     Swal.fire({
@@ -93,7 +106,7 @@ const AddUsuario = () => {
                 <div className="containerInputs">
                   <label htmlFor="dni">DNI*</label>
                   <Field
-                    onBlur={validateDni}
+                    onBlur={validateDni }
                     className={inputName}
                     type="number"
                     id="dni"

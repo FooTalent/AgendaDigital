@@ -52,7 +52,7 @@ const SideBar = () => {
               <p>Incidencias</p>
             </div>
           </NavLink>
-          <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
+          <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/usuarios/all">
             <div className="route">
               <img src="../../../public/img/iconRegistroUsuario.svg" alt="" />
               <p>Registro Usuarios</p>
