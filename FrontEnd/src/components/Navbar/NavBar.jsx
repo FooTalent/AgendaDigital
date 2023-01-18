@@ -4,12 +4,8 @@ import './navbar.css'
 const NavBar = () => {
     return (
 
-        <div className='container'>
-
-           
-
-
-
+        <div className="containerNavBar">
+            navbar
         </div>
     );
 };
