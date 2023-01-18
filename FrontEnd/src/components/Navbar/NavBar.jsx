@@ -3,7 +3,7 @@ import './navbar.css'
 
 const NavBar = () => {
     return (
-        <div className='container'>
+        <div >
             {/* <div className="search">
                 <input type="text" />
             </div>
@@ -18,7 +18,7 @@ const NavBar = () => {
                 </div>
             </div> */}
 
-            <img src="../public/img/navbar.jpg" alt="" />
+            <img className='img-nav' src="../public/img/navbar.jpg" alt="" />
         </div>
     );
 };
