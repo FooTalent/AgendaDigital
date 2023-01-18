@@ -10,18 +10,6 @@ const GlobalContextProvider = (props) => {
   const [pagxhoja, setpagxhoja] = useState(5)
   const [firstindex, setfirstindex] = useState(0)
  
-  
-
-
-  const orderByName = (array) => {
-    let order = array.sort((a, b) => a.name.localeCompare(b.name));
-    setuserorder(order);
-  };
-  
-
-  
- 
-
 
   return (
     <GlobalContext.Provider value={{ orderByName, users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual}}>

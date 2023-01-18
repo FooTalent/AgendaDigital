@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { GlobalContext } from "../../Context/GlobalContext";
 import "./sideBar.css";
 
 const SideBar = () => {
+  
+  const {disabledSB, setDisabledSB, setEnabled} = useContext(GlobalContext);
 
     let activeStyles = {
         color: "#fff",
@@ -11,63 +14,73 @@ const SideBar = () => {
         marginLeft: "0"
     };
 
+    const closeBtn = () => {
+      setDisabledSB(true);
+      setEnabled(false)
+    };
+
   return (
-    <div className="containerSideBar">
+    <div className={`containerSideBar ${disabledSB ? "disabledSB" : null}`}>
       <div className="school">
         <p>ESCUELA</p>
+        <div onClick={closeBtn} className="btnCloseSideBar">X</div>
       </div>
       <div className="user">
-        <img src="../../../public/img/admin.svg" alt="imagen de usuario" />
+        <img src="./img/admin.svg" alt="imagen de usuario" />
         <h3>ADMIN</h3>
       </div>
       <div className="containerRoutes">
         <div className="routes">
-          <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/dashboard">
+          <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
             <div className="route">
-              <img src="../../../public/img/iconAlumnos.svg" alt="" />
+              <img src="./img/iconAlumnos.svg" alt="" />
               <p>Alumnos</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
             <div className="route">
-              <img src="../../../public/img/iconAsistencia.svg" alt="" />
+              <img src="./img/iconAsistencia.svg" alt="" />
               <p>Asistencia</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
             <div className="route">
-              <img src="../../../public/img/iconTareas.svg" alt="" />
+              <img src="./img/iconTareas.svg" alt="" />
               <p>Tareas</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
             <div className="route">
-              <img src="../../../public/img/iconExamenes.svg" alt="" />
+              <img src="./img/iconExamenes.svg" alt="" />
               <p>Exámenes</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
             <div className="route">
-              <img src="../../../public/img/iconIncidencias.svg" alt="" />
+              <img src="./img/iconIncidencias.svg" alt="" />
               <p>Incidencias</p>
             </div>
           </NavLink>
+
+          <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/dashboard">
+
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/usuarios/all">
+
             <div className="route">
-              <img src="../../../public/img/iconRegistroUsuario.svg" alt="" />
+              <img src="./img/iconRegistroUsuario.svg" alt="" />
               <p>Registro Usuarios</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
             <div className="route">
-              <img src="../../../public/img/iconConfig.svg" alt="" />
+              <img src="./img/iconConfig.svg" alt="" />
               <p>Configuración</p>
             </div>
           </NavLink>
         </div>
-        <NavLink className="containerBtnClose">
+        <NavLink to="/" className="containerBtnClose">
           <div className="btnClose">
-            <img src="../../../public/img/iconCerrarSesion.svg" alt="" />
+            <img src="./img/iconCerrarSesion.svg" alt="" />
             <p>Cerrar sesión</p>
           </div>
         </NavLink>
