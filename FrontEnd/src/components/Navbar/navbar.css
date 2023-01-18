@@ -1,6 +1,12 @@
+.containerAll {
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .containerNavBar {
     width: 100%;
-    height: 8%;
     background: #fff;
     display: flex;
     align-items: flex-end;
@@ -28,5 +34,14 @@
 
 .optionValue {
     font-family: 'Inter';
+}
+
+.menuRoutes {
+    font-family: 'Inter';
+    font-weight: 700;
+}
+
+.routesNavBar p {
+    margin-left: 2%;
 }
 
