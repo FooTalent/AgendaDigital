@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.containerNavDashboard {
+    width: 100%;
+}
+
 .container{
     background-image: url(../../../public/img/fondoDashboard.svg);
     background-position: 50% 50%;

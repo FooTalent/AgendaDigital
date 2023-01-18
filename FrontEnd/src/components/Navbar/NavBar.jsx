@@ -5,7 +5,17 @@ const NavBar = () => {
     return (
 
         <div className="containerNavBar">
-            navbar
+            <div className="notification">
+                <img src="./img/notification.svg" alt="notification" />
+            </div>
+            <div className="selectUser containerSelect">
+                <img src="./img/user.svg" alt="user" />
+                <select className='selectUser' name="selectUser" id="selectUser">
+                    <option className='optionValue' value="admin">Admin</option>
+                    <option className='optionValue' value="dad/mother">Dad/ Mother</option>
+                    <option className='optionValue' value="student">Student</option>
+                </select>
+            </div>
         </div>
     );
 };
