@@ -4,8 +4,8 @@ import mongoose from 'mongoose';
 
 const UserSchema = new Schema(
    {
-      name: {
-         type: String,
+      dni: {
+         type: Number,
          required: true,
       },
       email: {
@@ -18,10 +18,14 @@ const UserSchema = new Schema(
       },
       role: {
          type: String,
-         default: 'sub-admin',
+         default: 'normal',
       },
       token: {
          type: String,
+      },
+      status: {
+         type: String,
+         default: 'created'
       },
    },
    {
