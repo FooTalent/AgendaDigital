@@ -1,4 +1,47 @@
-.container{
+.containerAll {
+    height: 5rem;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.containerNavBar {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+.notification img {
+    margin-right: 1.5rem;
+}
+
+.containerSelect {
+    margin-right: 10%;
+}
+
+.selectUser {
+    display: flex;
+    border: none;
+    background: #F4F4F4;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    margin-left: .2rem;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+.optionValue {
+    font-family: 'Inter';
+}
+
+.menuRoutes {
+    font-family: 'Inter';
+    font-weight: 700;
+}
+
+.routesNavBar p {
+    margin-left: 2%;
+}
+
