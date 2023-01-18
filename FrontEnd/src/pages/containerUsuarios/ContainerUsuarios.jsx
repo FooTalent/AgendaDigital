@@ -1,5 +1,9 @@
 import React, { useContext, useState } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import NavBar from "../../components/Navbar/NavBar";
+>>>>>>> 8e6fbc52e1578239ebc96bf1dc8bb5a0718a423b
 =======
 import NavBar from "../../components/Navbar/NavBar";
 >>>>>>> 8e6fbc52e1578239ebc96bf1dc8bb5a0718a423b
@@ -25,7 +29,13 @@ const ContainerUsuarios = ({pg}) => {
     <div className="users-container">
       <SideBar />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div className="sol-users">
+=======
+      
+      <div className="sol-users">
+      <NavBar/>
+>>>>>>> 8e6fbc52e1578239ebc96bf1dc8bb5a0718a423b
 =======
       
       <div className="sol-users">
