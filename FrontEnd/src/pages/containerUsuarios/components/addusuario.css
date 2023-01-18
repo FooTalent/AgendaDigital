@@ -1,0 +1,102 @@
+.containerFormAdd {
+    width: 100%;
+    display: flex;
+}
+
+.containerFormAdd form p {
+    margin-top: 3em;
+    margin-right: 0em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+.containerInputs{
+    display: flex;
+    flex-direction: column;
+    width: 26em;
+    height: auto;
+    margin-top: 1.5em;
+    margin-right: 0em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    color: #585858;
+    
+}
+
+.containerInputs label {
+    margin-bottom: .1em;
+}
+
+.containerTitleCreate{
+    display: flex;
+    align-items: center;
+    margin-top: 3em;
+    margin-right: 0em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+.imgPersonalInformation{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.inputsForm {
+    
+    border: 2px solid #4A4751;
+    border-radius: .5em;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    height: 2em;
+    
+
+}
+
+.inputsForm:focus {
+    background-color: var(--white);    
+
+}
+
+.containerBtnCreate {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+    margin-right: 0em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+.btnCreate{
+    width: 12.5em;
+    height: 2.2em;
+    border-radius: .3em;
+    border: 2px solid var(--bg-btn);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.35);
+    background-color: var(--bg-btn);
+    color: var(--white);
+
+
+
+}
+
+.btnReset {
+    width: 12.5em;
+    height: 2.2em;
+    border: 2px solid var(--bg-btn);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.35);
+    border-radius: .3em;
+    background-color: var(--white);
+    color: var(--bg-btn);
+    margin-left: 3em;
+}
+
+.valueInvalid {
+    border-color: red !important;
+    background-color: var(--white);
+
+}
+
+.valueValid {
+    border-color: rgb(51, 231, 6) !important;
+    background-color: var(--white);
+
+}
