@@ -70,15 +70,9 @@ const Login = () => {
                     setFormSubmmit(true);
                     setbtnIniciarSesion('pButton none')
                     setTimeout(() =>  setFormSubmmit(false), 1000 );
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                     axios.post('https://agendadigital-production.up.railway.app/api/user/login', values)
-=======
-                    axios.post('http://localhost:4001/api/user/login', values)
->>>>>>> 8e6fbc52e1578239ebc96bf1dc8bb5a0718a423b
-=======
-                    axios.post('http://localhost:4001/api/user/login', values)
->>>>>>> 8e6fbc52e1578239ebc96bf1dc8bb5a0718a423b
+
                     .then(res => {
                         setRejected(false)
                         navigate('/dashboard')

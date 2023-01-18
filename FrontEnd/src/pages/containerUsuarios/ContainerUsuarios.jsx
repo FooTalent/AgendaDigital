@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import NavBar from "../../components/Navbar/NavBar";
-import NavBar from "../../components/Navbar/NavBar";
+
 import SideBar from "../../components/SideBar/SideBar";
 import { GlobalContext } from "../../Context/GlobalContext";
 import AddUsuario from "./components/AddUsuario";
@@ -25,7 +24,7 @@ const ContainerUsuarios = ({pg}) => {
 
       
       <div className="sol-users">
-      <NavBar/>
+   
 
         <NavbarUsuarios />
        
