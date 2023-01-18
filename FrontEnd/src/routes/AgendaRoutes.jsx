@@ -11,9 +11,6 @@ const AgendaRoutes = () => {
     return (
         <>
             {/* colocar nav */}
-            {
-                /* prueba */
-            }
             <Routes>
                 <Route path='/' element={ <Home/> }/>
                 <Route path='/login' element={ <Login/> }/>

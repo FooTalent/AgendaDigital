@@ -60,7 +60,7 @@
 
 @media (max-width: 576px) {
 
-    .container {
+    .enabledContainer {
         display: none;
     }
 }

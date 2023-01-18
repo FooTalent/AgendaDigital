@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <div className="containerDashboard">
       <SideBar />
-      <div className={`${enabled ? "container" : null}`}>
+      <div className={`container ${enabled ? "enabledContainer" : null}`}>
         <NavLink className="navDeco" to={"#"}>
           <div className="card">
             <div className="element">
