@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+
 import SideBar from "../../components/SideBar/SideBar";
 import { GlobalContext } from "../../Context/GlobalContext";
 import AddUsuario from "./components/AddUsuario";
@@ -20,12 +21,19 @@ const ContainerUsuarios = ({pg}) => {
   return (
     <div className="users-container">
       <SideBar />
+
+      
       <div className="sol-users">
+   
+
         <NavbarUsuarios />
-        <NavbarTools captureSearch={captureSearch} />
+       
         {
           pg === 'all' ?
+          <>
+          <NavbarTools captureSearch={captureSearch} />
           <AllUsuarios search={search} />
+          </>
           :
           <AddUsuario/>
         }        

@@ -5,6 +5,7 @@ import "./addusuario.css";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddUsuario = () => {
   const [formSubmmit, setFormSubmmit] = useState(false);
@@ -12,118 +13,86 @@ const AddUsuario = () => {
   const [inputEmail, setInputEmail] = useState("inputsForm");
   const [inputPass, setInputPass] = useState("inputsForm");
 
-  const validateName = (valores) => {
-    if (!valores.name) {
+  const validateDni = (valores) => {
+    if (!valores.target.value) {
+      console.log('vacio');
+      setInputEmail('')
       setInputName("inputsForm valueInvalid");
-    } else if (!/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/i.test(valores.name)) {
+    } else if (valores.target.value.length < 6) {
+      console.log('falta');
+      setInputEmail('')
       setInputName("inputsForm valueInvalid");
     } else {
-      setInputName("inputsForm");
+      console.log('ok');
+      setInputEmail('')
+      setInputName("inputsForm valueValid");
     }
   };
 
   const validateEmail = (valores) => {
-    if (!valores.email) {
+    
+    if (!valores.target.value) {
+      setInputEmail('')
       setInputEmail("inputsForm valueInvalid");
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(valores.email)
-    ) {
-      setInputEmail("inputsForm valueInvalid");
-    } else {
-      setInputEmail("inputsForm");
+      
     }
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(valores.target.value)) {
+      
+      setInputEmail('')
+      setInputEmail("inputsForm valueInvalid");
+    }
+    else {
+      setInputEmail('')
+      setInputEmail("inputsForm valueValid");
+      
+    }
+
+  
   };
-  const validatePass = (valores) =>
-    !valores.password
-      ? setInputPass("inputsForm valueInvalid ")
-      : setInputPass("inputsForm");
+
+  // const validatePass = (valores) =>
+  //   !valores.password
+  //     ? setInputPass("inputsForm valueInvalid ")
+  //     : setInputPass("inputsForm");
 
   return (
     <>
       <div className="container">
         <Formik
           initialValues={{
-            name: "",
+            dni: "",
             email: "",
             password: "",
           }}
-          validate={(values) => {
-            const errors = {};
-            validateName(values);
-            validateEmail(values);
-            validatePass(values);
-
-            return errors;
-          }}
-          onSubmit={(values, { resetForm }) => {
-            resetForm();
-            console.log("creado");
-            setFormSubmmit(true);
-            setTimeout(() => setFormSubmmit(false), 2000);
-            axios
-              .get("https://agendadigital-production.up.railway.app/api/admin")
-              .then((res) => {
-                let exist = "";
-                res.data.map((el) =>
-                  el.email === values.email ? (exist = el.email) : exist
-                );
-                console.log(exist.length);
-
-                if (exist.length > 0) {
-                  Swal.fire({
+        onSubmit={(values, { resetForm })=>{
+          resetForm();
+          axios.post("https://agendadigital-production.up.railway.app/api/user",values)
+          .then( res => {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Usuario Creado con Exito",
+              showConfirmButton: false,
+              timer: 2000,
+            })
+            useNavigate('../usuarios/all')
+          })
+          .catch( err => {
+            console.log(err);
+                    Swal.fire({
                     position: "center",
                     icon: "warning",
                     title: "Ya existe un usuario creado con ese email",
                     showConfirmButton: false,
                     timer: 2000,
                   });
-                } else {
-                  axios
-                    .post(
-                      "https://agendadigital-production.up.railway.app/api/user",
-                      values
-                    )
-                    .then((res) => {
-                      setInputEmail("inputsForm");
-                      setInputName("inputsForm");
-                      setInputPass("inputsForm");
-                      Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Usuario creado con exito",
-                        showConfirmButton: false,
-                        timer: 1500,
-                      });
-                    })
-                    .catch((err) => {
-                      setInputEmail("inputsForm");
-                      setInputName("inputsForm");
-                      setInputPass("inputsForm");
-                      Swal.fire({
-                        position: "center",
-                        icon: "error",
-                        title: "Error 404",
-                        showConfirmButton: false,
-                        timer: 1500,
-                      });
-                    });
-                }          
-              })
-              .catch((err) => {
-                setInputEmail("inputsForm");
-                setInputName("inputsForm");
-                setInputPass("inputsForm");
-                Swal.fire({
-                  position: "center",
-                  icon: "error",
-                  title: "Error 404",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-              });          
-          }}
+          } )
+        }}
+
+          
         >
           {() => (
+
             <div className="containerFormAdd">
               <Form className="">
                 <div className="containerTitleCreate">
@@ -135,33 +104,37 @@ const AddUsuario = () => {
                   <span className="titleCreate">Datos personales</span>
                 </div>
                 <div className="containerInputs">
-                  <label htmlFor="name">Nombre*</label>
+                  <label htmlFor="dni">DNI*</label>
                   <Field
-                    onClick={validateName}
+                    onBlur={validateDni }
                     className={inputName}
-                    type="text"
-                    id="name"
-                    name="name"
+                    type="number"
+                    id="dni"
+                    name="dni"
+                    
                   />
                 </div>
                 <div className="containerInputs">
                   <label htmlFor="email">E-mail*</label>
                   <Field
-                    onClick={validateEmail}
+                    onBlur={validateEmail}
                     className={inputEmail}
                     id="email"
                     type="email"
                     name="email"
+                    
                   />
                 </div>
                 <div className="containerInputs">
                   <label htmlFor="password">Contraseña*</label>
                   <Field
-                    onClick={validatePass}
+                   
                     id="password"
                     name="password"
-                    type="text"
+                    type="password"
+                    autoComplete="true"
                     className={inputPass}
+                  
                   />
                 </div>
                 <div className="containerBtnCreate">
@@ -169,14 +142,16 @@ const AddUsuario = () => {
                     className="btnCreate"
                     type="submit"
                     value="Crear usuario"
+                    id='new'
                   />
-                  <Field className="btnReset" type="reset" value="Limpiar" />
+                  <Field className="btnReset" type="reset" id='reset' value="Limpiar" />
                 </div>
                 <p>Los campos con * son obligatorios.</p>
               </Form>
             </div>
           )}
         </Formik>
+        
       </div>
     </>
   );

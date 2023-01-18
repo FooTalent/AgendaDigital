@@ -90,7 +90,13 @@
 }
 
 .valueInvalid {
-    border-color: red;
+    border-color: red !important;
+    background-color: var(--white);
+
+}
+
+.valueValid {
+    border-color: rgb(51, 231, 6) !important;
     background-color: var(--white);
 
 }
