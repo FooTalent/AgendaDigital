@@ -71,7 +71,7 @@ const Login = () => {
                     setbtnIniciarSesion('pButton none')
                     setTimeout(() =>  setFormSubmmit(false), 1000 );
 
-                    axios.post('https://agendadigital-production.up.railway.app/api/user/login', values)
+                    axios.post('http://localhost:4000/api/auth/login', values)
 
                     .then(res => {
                         setRejected(false)

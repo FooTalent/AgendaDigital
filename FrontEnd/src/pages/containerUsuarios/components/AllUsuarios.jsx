@@ -11,20 +11,22 @@ const AllUsuarios = ({ search }) => {
   const [dni, setdni] = useState(0);
   const [id, setid] = useState("");
 
-  const columns = ["DNI", "E-mail", "Rol", "status", ""];
+  const columns = ["N°","DNI", "E-mail", "Rol", "status", ""];
 
   useEffect(() => {
     axios
-      .get("https://agendadigital-production.up.railway.app/api/admin")
+      .get("http://localhost:4000/api/auth")
       .then((res) => {
         // let order = res.data.sort((a, b) => a.name.localeCompare(b.dni));
         // setusers(order);
-        setusers(res.data);
+        setusers(res.data.data);
+        
       });
-  }, [users]);
+  }, []);
 
 let results = []
   
+
 
   const searchName = () => {
    results = users.filter(
@@ -93,17 +95,18 @@ let results = []
           </tr>
         </thead>
         <tbody>
-          {results.splice(firstindex, pagxhoja).map((us) => (
+          {results.splice(firstindex, pagxhoja).map((us, index) => (
             <tr key={us._id}>
+               <td className="allusers-tbody">{index +1}</td>
               <td className="allusers-tbody">{us.dni}</td>
 
               <td className="allusers-tbody">
                 {" "}
-                <img
+                {/* <img
                   className="correo"
                   src="../public/img/correo.png"
                   alt=""
-                />{" "}
+                />{" "} */}
                 {us.email}
               </td>
               <td className="allusers-tbody">{us.role}</td>
@@ -111,7 +114,7 @@ let results = []
               <td className="allusers-tbody2">
                 <span>
                   {" "}
-                  <img
+                  <img className="editdel"
                     onClick={() => {
                       editUsers(us.dni, us.email, us._id);
                     }}
@@ -132,7 +135,7 @@ let results = []
           ))}
         </tbody>
       </table>
-      <p>Página {pagActual +1} de { Math.ceil(users.length / pagxhoja) }</p>
+      <p className="pagina"> Página  <span className="pag">{pagActual +1} </span> de { Math.ceil(users.length / pagxhoja) }</p>
       {/*------------------------------------ modal -------------------------------*/}
       {modal && (
         <div className="modal">
