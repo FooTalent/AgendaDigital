@@ -3,9 +3,7 @@ import { GlobalContext } from "../../Context/GlobalContext";
 import "./navbar.css";
 
 const NavBar = () => {
-    let widthWindow = window.innerWidth;
   const { setEnabledSB, setEnabled, enabled, setMaximunWidth } = useContext(GlobalContext);
- /*  const [checkWindow, setCheckWindow] = useState(widthWindow); */
 
     const handlerSideBar = () => {
         setEnabledSB(false);
@@ -13,14 +11,6 @@ const NavBar = () => {
         setMaximunWidth(false)
     };
 
-   
-    const handlerWindow = () => {
-        widthWindow
-    };
-    
-    window.addEventListener('DOMContentLoaded', handlerWindow);
-
-    
     
 
   return (
@@ -37,9 +27,6 @@ const NavBar = () => {
         <div className="selectUser containerSelect">
           <img src="./img/user.svg" alt="user" />
           <select className="selectUser selectWidth" name="selectUser" id="selectUser">
-            {
-                widthWindow < 576 && <option value=""></option>               
-            } 
             <option className="optionValue" value="admin">
               Admin
             </option>
