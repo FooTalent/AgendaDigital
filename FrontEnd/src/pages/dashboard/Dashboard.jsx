@@ -8,7 +8,7 @@ import { GlobalContext } from "../../Context/GlobalContext";
 import NavBar from "../../components/Navbar/NavBar";
 
 const Dashboard = () => {
-  const { enabled } = useContext(GlobalContext);
+  const { enabled} = useContext(GlobalContext);
 
   return (
     <>

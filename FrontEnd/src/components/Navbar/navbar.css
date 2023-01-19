@@ -85,6 +85,10 @@
         justify-content: space-evenly;
     }
 
+    .disabledContainerNavbar {
+        display: none;
+    }
+
 }
 
 @media (min-width: 577px) and (max-width: 767px) {

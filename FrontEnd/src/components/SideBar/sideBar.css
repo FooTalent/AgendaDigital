@@ -100,7 +100,6 @@
 
     .containerSideBar {
         width: 90%;
-        z-index: 999;
     }
 
     .school p{
@@ -125,8 +124,4 @@
     .btnCloseSideBar {
         display: none;
     }
-    
-    .containerSideBar {
-        height: 100vh;
-    }   
 }

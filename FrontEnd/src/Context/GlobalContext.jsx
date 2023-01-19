@@ -6,9 +6,10 @@ const GlobalContextProvider = (props) => {
   const [users, setusers] = useState([]);
   const [userorder, setuserorder] = useState([]);
 
-/* estados de sideBar y Dashboard*/
-  const [disabledSB, setDisabledSB] = useState(false);
-  const [enabled, setEnabled] = useState(true);
+  /* estados de sideBar y Dashboard*/
+  const [enabled, setEnabled] = useState(false);
+  const [enabledSB, setEnabledSB] = useState(true);
+/*   const [enabledSB, setEnabledSB] = useState(false); */
 
   const [pagActual, setpagActual] = useState(0)
   const [pagxhoja, setpagxhoja] = useState(5)
@@ -16,7 +17,7 @@ const GlobalContextProvider = (props) => {
  
 
   return (
-    <GlobalContext.Provider value={{/*  orderByName, */ users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual, disabledSB, setDisabledSB,enabled,  setEnabled}}>
+    <GlobalContext.Provider value={{/*  orderByName, */ users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual, enabled,  setEnabled, enabledSB, setEnabledSB}}>
       {props.children}
     </GlobalContext.Provider>
   );

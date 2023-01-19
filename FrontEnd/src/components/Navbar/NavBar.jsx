@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../../Context/GlobalContext";
 import "./navbar.css";
 
 const NavBar = () => {
+  const { setEnabledSB, setEnabled, enabled } = useContext(GlobalContext);
 
-    const enabledSideBar = () => {
-
+    const handlerSideBar = () => {
+        setEnabledSB(false);
+        setEnabled(true);
     };
-    
+
   return (
-    <div className="containerAll">
+    <div className={`containerAll ${enabled ? "disabledContainerNavbar" : null}`}>
       <div className="containerNavBar">
         <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
         </div>
         <div className="hamburguer">
-            <img onClick={enabledSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
+            <img onClick={handlerSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
             <h3>ESCUELA</h3>
         </div>
         <div className="selectUser containerSelect">

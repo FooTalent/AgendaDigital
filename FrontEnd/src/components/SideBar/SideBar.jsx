@@ -5,7 +5,7 @@ import "./sideBar.css";
 
 const SideBar = () => {
   
-  const {disabledSB, setDisabledSB, setEnabled} = useContext(GlobalContext);
+  const {setEnabledSB, enabledSB, setEnabled} = useContext(GlobalContext);
 
     let activeStyles = {
         color: "#fff",
@@ -15,12 +15,12 @@ const SideBar = () => {
     };
 
     const closeBtn = () => {
-      setDisabledSB(true);
-      setEnabled(false)
+      setEnabledSB(true);
+      setEnabled(false);
     };
 
   return (
-    <div className={`containerSideBar ${disabledSB ? "disabledSB" : null}`}>
+    <div className={`containerSideBar ${enabledSB ? "disabledSB" : null}`}>
       <div className="school">
         <p>ESCUELA</p>
         <div onClick={closeBtn} className="btnCloseSideBar">X</div>
