@@ -9,8 +9,8 @@
     width: 100%;
     background: #fff;
     display: flex;
-    align-items: flex-end;
-    justify-content: end;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .notification img {
@@ -45,3 +45,52 @@
     margin-left: 2%;
 }
 
+.hamburguer {
+    display: none;
+}
+
+.hamburguer img{
+    width: 2rem;
+    color: #26036E;
+}
+
+.hamburguer h3{
+    color: #26036E;
+    font-weight: 700;
+    padding-left: .5rem;
+}
+
+
+@media (max-width: 576px) {
+
+    .disableNavBar {
+        display: none;
+    }
+
+    .hamburguer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .containerSelect {
+        margin-right: 0;
+    }
+
+    .containerNavBar {
+        width: 100%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+
+};
+
+@media (min-width: 768px) and (max-width: 1920px) {
+    
+};

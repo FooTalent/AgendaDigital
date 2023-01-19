@@ -2,11 +2,20 @@ import React from "react";
 import "./navbar.css";
 
 const NavBar = () => {
+
+    const enabledSideBar = () => {
+
+    };
+    
   return (
     <div className="containerAll">
       <div className="containerNavBar">
-        <div className="notification">
+        <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
+        </div>
+        <div className="hamburguer">
+            <img onClick={enabledSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
+            <h3>ESCUELA</h3>
         </div>
         <div className="selectUser containerSelect">
           <img src="./img/user.svg" alt="user" />
@@ -23,7 +32,7 @@ const NavBar = () => {
           </select>
         </div>
       </div>
-      <div className="routesNavBar">
+      <div className="routesNavBar disableNavBar">
         <p>
             <span className="menuRoutes">Menú</span> {`>`} Dashboard
         </p>
