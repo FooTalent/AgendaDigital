@@ -3,11 +3,12 @@ import { GlobalContext } from "../../Context/GlobalContext";
 import "./navbar.css";
 
 const NavBar = () => {
-  const { setEnabledSB, setEnabled, enabled } = useContext(GlobalContext);
+  const { setEnabledSB, setEnabled, enabled, setMaximunWidth } = useContext(GlobalContext);
 
     const handlerSideBar = () => {
         setEnabledSB(false);
         setEnabled(true);
+        setMaximunWidth(false)
     };
 
   return (

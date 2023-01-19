@@ -5,7 +5,7 @@ import "./sideBar.css";
 
 const SideBar = () => {
   
-  const {setEnabledSB, enabledSB, setEnabled} = useContext(GlobalContext);
+  const {setEnabledSB, enabledSB, setEnabled, setMaximunWidth} = useContext(GlobalContext);
 
     let activeStyles = {
         color: "#fff",
@@ -17,6 +17,7 @@ const SideBar = () => {
     const closeBtn = () => {
       setEnabledSB(true);
       setEnabled(false);
+      setMaximunWidth(true)
     };
 
   return (
