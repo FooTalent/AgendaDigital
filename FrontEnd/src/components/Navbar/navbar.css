@@ -60,6 +60,10 @@
     padding-left: .5rem;
 }
 
+.disabledOption {
+    display: none;
+}
+
 
 @media (max-width: 576px) {
 
@@ -87,6 +91,10 @@
 
     .disabledContainerNavbar {
         display: none;
+    }
+
+    .selectWidth {
+        width: 1rem;
     }
 
 }
