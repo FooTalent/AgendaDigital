@@ -8,13 +8,13 @@ import { GlobalContext } from "../../Context/GlobalContext";
 import NavBar from "../../components/Navbar/NavBar";
 
 const Dashboard = () => {
-  const { enabled } = useContext(GlobalContext);
+  const { enabled , maximunWidth} = useContext(GlobalContext);
 
   return (
     <>
       <div className="containerDashboard">
         <SideBar />
-        <div className="containerNavDashboard">
+        <div className= {`${maximunWidth ? "containerNavDashboard" : "minimunWidth"}`}>
           <NavBar />
           <div className={`container ${enabled ? "enabledContainer" : null}`}>
             <NavLink className="navDeco" to={"#"}>

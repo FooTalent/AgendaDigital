@@ -67,5 +67,9 @@
     .enabledContainer {
         display: none;
     }
+    
+    .minimunWidth {
+        width: 20%;
+    }
 }
 
