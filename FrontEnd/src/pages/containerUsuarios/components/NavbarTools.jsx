@@ -20,14 +20,14 @@ const NavbarTools = ({ captureSearch }) => {
     if (users.length < firstindex) return;
     setpagActual(nextpage);
 
-    console.log(firstindex);
+    // console.log(firstindex);
   };
 
   const btnPrev = () => {
     const prevpage = pagActual - 1;
     setfirstindex(prevpage * pagxhoja);
     setpagActual(prevpage);
-    console.log(pagActual);
+    // console.log(pagActual);
   };
 
   useEffect(() => {
@@ -52,8 +52,8 @@ const NavbarTools = ({ captureSearch }) => {
         <div className="navbarTools-filter2-1">
           <p className="order">Mostrar: </p>
           <select className="select" name="" id="" onChange={(e) => setpagxhoja(e.target.value)}>
-            <option value="5">5</option>
             <option value="10">10</option>
+            <option value="15">15</option>
           </select>
         </div>
         <div className="btns">

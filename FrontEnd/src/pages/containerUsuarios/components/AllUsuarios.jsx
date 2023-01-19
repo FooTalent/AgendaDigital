@@ -15,14 +15,14 @@ const AllUsuarios = ({ search }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/auth")
+      .get("https://agendadigital.onrender.com/api/auth")
       .then((res) => {
         // let order = res.data.sort((a, b) => a.name.localeCompare(b.dni));
         // setusers(order);
         setusers(res.data.data);
         
       });
-  }, []);
+  }, [users]);
 
 let results = []
   
@@ -48,7 +48,7 @@ let results = []
   const updateUser = (e) => {
     e.preventDefault();
     axios.patch(
-      `https://agendadigital-production.up.railway.app/api/admin/updateUser/${id}`,
+      `https://agendadigital.onrender.com/api/auth/update/${id}`,
       {
         dni: Number(dni),
         email: email,
@@ -68,7 +68,7 @@ let results = []
   const deleteUser = (id) => {
     axios
       .delete(
-        `https://agendadigital-production.up.railway.app/api/admin/deleteUser/${id}`
+        `https://agendadigital.onrender.com/api/auth/delete/${id}`
       )
       .then((res) => {
         Swal.fire({
@@ -78,7 +78,7 @@ let results = []
           showConfirmButton: false,
           timer: 2000,
         });
-        console.log(res.data);
+        // console.log(res.data);
       });
   };
 
@@ -97,7 +97,7 @@ let results = []
         <tbody>
           {results.splice(firstindex, pagxhoja).map((us, index) => (
             <tr key={us._id}>
-               <td className="allusers-tbody">{index +1}</td>
+               <td className="allusers-tbody">{index+1}</td>
               <td className="allusers-tbody">{us.dni}</td>
 
               <td className="allusers-tbody">

@@ -11,7 +11,7 @@ const GlobalContextProvider = (props) => {
   const [enabled, setEnabled] = useState(true);
 
   const [pagActual, setpagActual] = useState(0)
-  const [pagxhoja, setpagxhoja] = useState(5)
+  const [pagxhoja, setpagxhoja] = useState(10)
   const [firstindex, setfirstindex] = useState(0)
  
 

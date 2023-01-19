@@ -6,10 +6,10 @@ const NavBar = () => {
     <div className="containerAll">
       <div className="containerNavBar">
         <div className="notification">
-          <img src="./img/notification.svg" alt="notification" />
+          <img src="../img/notification.svg" alt="notification" />
         </div>
         <div className="selectUser containerSelect">
-          <img src="./img/user.svg" alt="user" />
+          <img src="../img/user.svg" alt="user" />
           <select className="selectUser" name="selectUser" id="selectUser">
             <option className="optionValue" value="admin">
               Admin
