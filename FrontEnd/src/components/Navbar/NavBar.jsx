@@ -28,6 +28,7 @@ const NavBar = () => {
       <div className="containerNavBar">
         <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
+
         </div>
         <div className="hamburguer">
             <img onClick={handlerSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
@@ -38,8 +39,7 @@ const NavBar = () => {
           <select className="selectUser selectWidth" name="selectUser" id="selectUser">
             {
                 widthWindow < 576 && <option value=""></option>               
-            }
-            
+            } 
             <option className="optionValue" value="admin">
               Admin
             </option>

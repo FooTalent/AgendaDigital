@@ -13,6 +13,7 @@ const AddUsuario = () => {
   const [inputEmail, setInputEmail] = useState("inputsForm");
   const [inputPass, setInputPass] = useState("inputsForm");
 
+  const navigate = useNavigate()
   const validateDni = (valores) => {
     if (!valores.target.value) {
       console.log('vacio');
@@ -65,20 +66,22 @@ const AddUsuario = () => {
             password: "",
           }}
         onSubmit={(values, { resetForm })=>{
-          resetForm();
-          axios.post("https://agendadigital-production.up.railway.app/api/user",values)
-          .then( res => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Usuario Creado con Exito",
-              showConfirmButton: false,
-              timer: 2000,
+          // resetForm();
+         
+          axios.post("https://agendadigital.onrender.com/api/auth/register", values)
+            .then( res=> {
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Usuario Creado con Exito",
+                showConfirmButton: false,
+                
+              })
+              navigate('../usuarios/all')
             })
-            useNavigate('../usuarios/all')
-          })
-          .catch( err => {
-            console.log(err);
+            .catch( err => {
+
                     Swal.fire({
                     position: "center",
                     icon: "warning",
@@ -86,12 +89,11 @@ const AddUsuario = () => {
                     showConfirmButton: false,
                     timer: 2000,
                   });
-          } )
-        }}
+
+            })
+        }}>
 
           
-        >
-          {() => (
 
             <div className="containerFormAdd">
               <Form className="">
@@ -149,7 +151,7 @@ const AddUsuario = () => {
                 <p>Los campos con * son obligatorios.</p>
               </Form>
             </div>
-          )}
+          
         </Formik>
         
       </div>
