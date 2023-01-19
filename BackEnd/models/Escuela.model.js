@@ -1,6 +1,5 @@
-import  { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
-
+import { Schema, model } from 'mongoose';
+import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
 const EscuelaSchema = new Schema({
    name: {
       type: String,
@@ -34,17 +33,21 @@ const EscuelaSchema = new Schema({
       {
          type: Schema.Types.ObjectId,
          ref: 'Administrativo',
-      }
+      },
    ],
-   // presectorialId: {
-   //    type: array,
-   //    default: [],
-   // },
+   preceptorId: [{ 
+      type: Schema.Types.ObjectId, 
+      ref: 'Preceptor' 
+   }],
    // profesoresId: {
    //    type: array,
    //    default: [],
    // },
    // alumnosId: {
+   //    type: array,
+   //    default: [],
+   // },
+   // padreId: {
    //    type: array,
    //    default: [],
    // },
@@ -57,15 +60,8 @@ const EscuelaSchema = new Schema({
    },
 });
 
-EscuelaSchema.pre('save', async function (next) {
-   if (!this.isModified('password')) {
-      next();
-   }
-   const salt = await bcrypt.genSalt(10);
-   this.password = await bcrypt.hash(this.password, salt);
-});
-EscuelaSchema.methods.comprobarPassword = async function (passwordFormulario) {
-   return await bcrypt.compare(passwordFormulario, this.password);
-};
+EscuelaSchema;
+savePassword(EscuelaSchema);
+comparePassword(EscuelaSchema);
 const Escuela = model('Escuela', EscuelaSchema);
 export default Escuela;

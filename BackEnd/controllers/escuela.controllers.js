@@ -24,7 +24,7 @@ export const registrarEscuela = async (req, res) => {
       // });
       admin.forEach(async (ad) => {
          await Admin.findByIdAndUpdate(ad._id, {
-            $push: { escuelasRegistradas: escuela.name },
+            $push: { escuelasRegistradas: escuela._id },
          });
       });
       res.status(201).json(escuela);
@@ -69,6 +69,32 @@ export const autenticarEscuela = async (req, res) => {
    } else {
       const error = new Error('Contraseña incorrecta');
       return res.status(400).json({ error: error.message });
+   }
+};
+export const modificarEscuela = async (req, res) => {
+   const { id } = req.params;
+   const existeEscuela = await Escuela.findById(id);
+
+   if (!existeEscuela) {
+      const error = new Error('Escuela no encontrada');
+      return res.status(400).json({ error: error.message });
+   }
+   existeEscuela.name = req.body.name;
+   existeEscuela.email = req.body.email;
+   existeEscuela.password = req.body.password;
+   existeEscuela.telefono = req.body.telefono;
+   existeEscuela.direccion = req.body.direccion;
+   try {
+      const escuela = await Escuela.findByIdAndUpdate(id, existeEscuela, {
+         new: true,
+      });
+
+      res.status(200).json({
+         message: 'Escuela modificada correctamente',
+         escuela,
+      });
+   } catch (error) {
+      res.status(500).json({ error: error.message });
    }
 };
 export const olvidePasswordEscuela = async (req, res) => {

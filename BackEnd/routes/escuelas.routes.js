@@ -7,6 +7,7 @@ import {
    comprobarTokenEscuela,
    nuevoPasswordEscuela,
    perfilEscuela,
+   modificarEscuela,
 } from '../controllers/escuela.controllers.js';
 import { checkAuth } from '../middleware/checkAuth.js';
 const router = express.Router();
@@ -14,6 +15,7 @@ const router = express.Router();
 router.post('/', registrarEscuela);
 router.get('/confirmar/:token', confirmarEscuela);
 router.post('/login', autenticarEscuela);
+router.put('/modificar/:id', modificarEscuela);
 
 router.post('/olvide-password', olvidePasswordEscuela);
 router

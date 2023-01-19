@@ -1,6 +1,5 @@
-
 import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
+import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
 const AdminSchema = new Schema(
    {
       name: {
@@ -15,7 +14,7 @@ const AdminSchema = new Schema(
       password: {
          type: String,
          required: true,
-         trim:true
+         trim: true,
       },
       role: {
          type: String,
@@ -28,24 +27,18 @@ const AdminSchema = new Schema(
          type: Boolean,
          default: false,
       },
-      escuelasRegistradas: {
-         type: Array,
-         default: [],
-      },
+      escuelasRegistradas: [
+         {
+            type: Schema.Types.ObjectId,
+            ref: 'Escuela',
+         },
+      ],
    },
    {
       timestamps: true,
    }
 );
-AdminSchema.pre('save', async function (next) {
-   if (!this.isModified('password')) {
-     next();
-   }
-   const salt = await bcrypt.genSalt(10);
-   this.password = await bcrypt.hash(this.password, salt);
-});
-AdminSchema.methods.comprobarPassword = async function (passwordFormulario) {
-   return await bcrypt.compare(passwordFormulario, this.password);
-};
+savePassword(AdminSchema);
+comparePassword(AdminSchema);
 const Admin = model('Admin', AdminSchema);
 export default Admin;

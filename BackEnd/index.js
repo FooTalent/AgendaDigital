@@ -4,7 +4,7 @@ import connectDB from './config/db.js';
 import adminRoutes from './routes/admin.routes.js';
 import escuelasRoutes from './routes/escuelas.routes.js';
 import administrativoRoutes from './routes/administrativo.routes.js';
-import userRoutes from './routes/userRoutes.js';
+
 import cors from 'cors';
 const app = express();
 app.use(cors());
@@ -14,7 +14,7 @@ connectDB();
 app.use('/api/admin', adminRoutes);
 app.use('/api/escuela', escuelasRoutes);
 app.use('/api/administrativo', administrativoRoutes);
-app.use('/api/user', userRoutes);
+
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
    console.log(`Server running on port ${PORT}`);

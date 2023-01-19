@@ -1,7 +1,7 @@
 import Admin from '../models/Admin.model.js';
 import generatorJWT from '../helpers/generatorJWT.js';
 import generarId from '../helpers/generarId.js';
-import { transporter } from '../config/mailer.js';
+import { emailConfirm, emailModificacion } from '../helpers/sendEmail.js';
 
 export const registrar = async (req, res) => {
    const { email } = req.body;
@@ -13,15 +13,16 @@ export const registrar = async (req, res) => {
    try {
       const admins = new Admin(req.body);
       admins.token = generarId();
-      const savedAdmin = await admins.save();
+      await admins.save();
+
       //enviar mail de confirmacion
-      // await transporter.sendMail({
-      //    from: '"Fred Foo 👻" <foo@example.com>', // sender address
-      //    to: admins.email, // list of receivers
-      //    subject: 'Hello ✔', // Subject line
-      //    text: 'Hello world?', // plain text body
-      //    html: `<b>http://localhost:3000/confirmar/${admins.token}</b>`, // html body
-      // });
+      await emailConfirm(
+         admins.name,
+         admins.email,
+         admins.token,
+         'Comprueba tu cuenta en Aula Equis',
+         'Aula Equis - Confirmacion de cuenta'
+      );
 
       res.status(201).json({ message: 'Admin creado correctamente' });
    } catch (error) {
@@ -56,7 +57,7 @@ export const autenticarAdmin = async (req, res) => {
       return res.status(400).json({ error: error.message });
    }
 
-   if (await admin.comprobarPassword(password)) {
+   if (await admin.comparePassword(password)) {
       res.json({
          _id: admin._id,
          name: admin.name,
@@ -70,6 +71,31 @@ export const autenticarAdmin = async (req, res) => {
       return res.status(400).json({ error: error.message });
    }
 };
+export const modificarAdmin = async (req, res) => {
+   const { id } = req.params;
+   const existeAdmin = await Admin.findById(id);
+   if (!existeAdmin) {
+      const error = new Error('Admin no Encontrado');
+      return res.status(400).json({ error: error.message });
+   }
+   existeAdmin.name = req.body.name;
+   existeAdmin.email = req.body.email;
+   existeAdmin.password = req.body.password;
+   try {
+      const admin = await existeAdmin.save();
+      //enviar mail de modificacion
+      await emailModificacion(
+         admin.name,
+         admin.email,
+         'Modificacion de cuenta en Aula Equis',
+         'Aula Equis - Modificacion de cuenta'
+      );
+      res.status(200).json(admin);
+   } catch (error) {
+      res.status(500).json({ error: error.message });
+   }
+};
+export const nuevosDatos = async (req, res) => {};
 export const olvidePassword = async (req, res) => {
    const { email } = req.body;
    const admin = await Admin.findOne({ email });
@@ -81,14 +107,13 @@ export const olvidePassword = async (req, res) => {
       admin.token = generarId();
       await admin.save();
       //enviar mail de confirmacion
-      // await transporter.sendMail({
-      //    from: '"Fred Foo 👻" <
-      //    to: admins.email, // list of receivers
-      //    subject: 'Hello ✔', // Subject line
-      //    text: 'Hello world?', // plain text body
-      //    html: `<b>http://localhost:3000/confirmar/${admins.token}</b>`, // html body
-      // });
-      // 'Hemos enviado un email con las instrucciones';
+      await emailResetPassword(
+         admin.name,
+         admin.email,
+         admin.token,
+         'Restablecer contraseña',
+         'Aula Equis - Restablecer contraseña'
+      );
       res.status(200).json(
          'Se ha enviado un mail para restablecer la contraseña'
       );

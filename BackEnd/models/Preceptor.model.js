@@ -1,8 +1,6 @@
 import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
 import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
-
-const AdministrativosSchema = new Schema({
+const PreceptorSchema = new Schema({
    name: {
       type: String,
       required: true,
@@ -12,29 +10,28 @@ const AdministrativosSchema = new Schema({
       required: true,
       unique: true,
    },
-   dni: {
-      type: String,
-      required: true,
-      unique: true,
-   },
    password: {
       type: String,
       required: true,
       trim: true,
    },
+   dni: {
+      type: String,
+      required: true,
+      unique: true,
+   },
    escuelaId: {
       type: Schema.Types.ObjectId,
       ref: 'Escuela',
    },
-   preceptorId: [
-      {
-         type: Schema.Types.ObjectId,
-         ref: 'Preceptor',
-      },
-   ],
+
+   creadoPor: {
+      type: Schema.Types.ObjectId,
+      ref: 'Administrativo',
+   },
    role: {
       type: String,
-      default: 'Administrativo',
+      default: 'Preceptor',
    },
    token: {
       type: String,
@@ -44,7 +41,8 @@ const AdministrativosSchema = new Schema({
       default: false,
    },
 });
-savePassword(AdministrativosSchema);
-comparePassword(AdministrativosSchema);
-const Administrativo = model('Administrativo', AdministrativosSchema);
-export default Administrativo;
+
+savePassword(PreceptorSchema);
+comparePassword(PreceptorSchema);
+const Preceptor = model('Preceptor', PreceptorSchema);
+export default Preceptor;
