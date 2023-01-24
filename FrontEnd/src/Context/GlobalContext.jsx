@@ -15,10 +15,10 @@ const GlobalContextProvider = (props) => {
   const [pagActual, setpagActual] = useState(0)
   const [pagxhoja, setpagxhoja] = useState(10)
   const [firstindex, setfirstindex] = useState(0)
- 
+  const [firstindex2, setfirstindex2] = useState(0)
 
   return (
-    <GlobalContext.Provider value={{/*  orderByName, */ users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual, enabled,  setEnabled, enabledSB, setEnabledSB, maximunWidth, setMaximunWidth}}>
+    <GlobalContext.Provider value={{/*  orderByName, */ users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual, enabled,  setEnabled, enabledSB, setEnabledSB, maximunWidth, setMaximunWidth, firstindex2, setfirstindex2}}>
       {props.children}
     </GlobalContext.Provider>
   );
