@@ -12,6 +12,7 @@ const Dashboard = () => {
 
   return (
     <>
+    
       <div className="containerDashboard">
         <SideBar />
         <div className= {`${maximunWidth ? "containerNavDashboard" : "minimunWidth"}`}>

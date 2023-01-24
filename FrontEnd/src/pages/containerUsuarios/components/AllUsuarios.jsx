@@ -150,9 +150,9 @@ const AllUsuarios = ({ search }) => {
       </table>
 
       <table className="datatable-mobile">
-        <tbody>
+        {/* <tbody> */}
           {results2.splice(firstindex2, 5).map((us, index) => (
-            <>
+            <tbody key={index}>
               <tr>
                 <td className="datatable-td"> <span className="bl"> N°: </span> {index + 1}</td>
               </tr>
@@ -185,9 +185,9 @@ const AllUsuarios = ({ search }) => {
                 </span>
               </td>
               </tr>
-            </>
+            </tbody>
           ))}
-        </tbody>
+        {/* </tbody> */}
       </table>
 
       <p className="pagina">
