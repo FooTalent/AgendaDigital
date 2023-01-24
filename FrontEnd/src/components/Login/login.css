@@ -195,10 +195,10 @@ button:disabled {
 
 /* Medias queries */
 
-@media screen and (max-width:650px) {
+@media screen and (max-width:834px) {
     .formLogin {        
-        height: 20em;
-        width: 19em;
+        height: 25em;
+        width: 30em;
     }
 
     .nameSchool {
@@ -220,5 +220,41 @@ button:disabled {
     .divButtonSession{
         width: 13em;
         height: 2.5em;
+    }
+}
+
+
+@media screen and (max-width:530px) {
+    .formLogin {        
+        height: 20em;
+        width: 22em;
+    }
+
+
+}
+
+@media screen and (max-width:380px) {
+    .formLogin {        
+        height: 15em;
+        width: 16em;
+    }
+    
+    .nameSchool {
+        font-size: 155%;
+    } 
+
+    .formLogin .titleLogin h1 {
+        font-size: 115%;
+    }
+
+    .divButtonSession{
+        width: 10em;
+        height: 2em;
+    }
+    .error {
+        color: red;
+        font-family: 'Inter';
+        margin-top: .4em;
+        font-size: .6em;
     }
 }
