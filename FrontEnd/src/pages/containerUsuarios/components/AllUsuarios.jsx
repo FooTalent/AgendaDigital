@@ -66,20 +66,35 @@ let results = []
   };
 
   const deleteUser = (id) => {
-    axios
-      .delete(
-        `https://agendadigital.onrender.com/api/auth/delete/${id}`
-      )
-      .then((res) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Usuario eliminado con exito",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        // console.log(res.data);
-      });
+
+      Swal.fire({
+        title: '¿Seguro que desea eliminar el usuario?',
+        text: "No Puede revertir esto",
+        icon: 'warning',
+        iconColor: 'red',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '¡Si, Eliminar!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .delete(
+              `https://agendadigital.onrender.com/api/auth/delete/${id}`
+            )
+            .then((res) => {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Usuario eliminado con exito",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+              // console.log(res.data);
+            });
+     
+      }})
   };
 
   return (
