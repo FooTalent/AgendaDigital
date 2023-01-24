@@ -11,21 +11,24 @@ const NavbarTools = ({ captureSearch }) => {
     setfirstindex,
     setpagActual,
     users,
+    firstindex2, setfirstindex2
   } = useContext(GlobalContext);
 
   const btnNext = () => {
     const nextpage = pagActual + 1;
 
     setfirstindex(nextpage * pagxhoja);
+    setfirstindex2( nextpage * 5)
     if (users.length < firstindex) return;
     setpagActual(nextpage);
-
+    
     // console.log(firstindex);
   };
 
   const btnPrev = () => {
     const prevpage = pagActual - 1;
     setfirstindex(prevpage * pagxhoja);
+    setfirstindex2( prevpage * 5)
     setpagActual(prevpage);
     // console.log(pagActual);
   };

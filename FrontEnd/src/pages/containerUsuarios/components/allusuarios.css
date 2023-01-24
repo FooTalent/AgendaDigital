@@ -27,6 +27,7 @@
   text-align: center;
   border-bottom: 1px solid #dfdfdf;
   line-height: 50px;
+  cursor: pointer;
 }
 .correo {
   background-color: grey;
@@ -108,4 +109,71 @@
 }
 .pag{
     font-weight: bold;
+}
+
+.datatable-mobile {
+  display: none;
+}
+
+
+
+
+@media (max-width: 710.98px) {
+
+
+  .allusers-datadable{
+    display: none;
+  }
+
+  .order {
+    display: none;
+  }
+
+  .select {
+    display: none;
+  }
+ 
+  .datatable-mobile{
+   display: inline-table;
+    width: 100%;
+  }
+  
+  .datatable-td{
+    padding-top:  0.4rem;
+  }
+
+  .bl {
+    font-weight: bold;
+  }
+
+  .allusers-tbody2{
+    padding-top:  0.5rem;
+    display: flex;
+    justify-content: end;
+  }
+
+  .modal{
+    width: 95%;
+  }
+
+  .modal-form {
+    width: 80%;
+  }
+
+  .btnReset{
+    
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .btnSave{
+    margin-left: 0;
+    width: 100%;
+    margin-bottom: 2%;
+  }
+
+
+  .pg2{
+    display: none;
+  }
 }
