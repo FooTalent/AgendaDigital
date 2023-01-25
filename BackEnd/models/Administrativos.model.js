@@ -1,48 +1,50 @@
 import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
+import {
+   agregadoPorSubSchema,
+   codigoPostalSubSchema,
+   confirmadoSubSchema,
+   direccionSubSchema,
+   dniSubSchema,
+   emailSubSchema,
+   escuelaIdSubSchema,
+   habilitadoSubSchema,
+   lastNameSubSchema,
+   localidadSubSchema,
+   nameSubSchema,
+   passwordSubSchema,
+   provinciaSubSchema,
+   telefonoSubSchema,
+   tokenSubSchema,
+} from './model.js';
 
 const AdministrativosSchema = new Schema({
-   name: {
+   name: nameSubSchema,
+   lastName: lastNameSubSchema,
+   email: emailSubSchema,
+   password: passwordSubSchema,
+   dni: dniSubSchema,
+   token: tokenSubSchema,
+   confirmado: confirmadoSubSchema,
+   telefono: telefonoSubSchema,
+   direccion: direccionSubSchema,
+   habilitado: habilitadoSubSchema,
+   codigoPostal: codigoPostalSubSchema,
+   localidad: localidadSubSchema,
+   provicia: provinciaSubSchema,
+   escuelaId: escuelaIdSubSchema,
+   rol: {
       type: String,
-      required: true,
+      value: 'Administrativo',
    },
-   email: {
-      type: String,
-      required: true,
-      unique: true,
-   },
-   dni: {
-      type: String,
-      required: true,
-      unique: true,
-   },
-   password: {
-      type: String,
-      required: true,
-      trim: true,
-   },
-   escuelaId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Escuela',
-   },
+   agregadoPor: agregadoPorSubSchema,
    preceptorId: [
       {
          type: Schema.Types.ObjectId,
          ref: 'Preceptor',
       },
    ],
-   role: {
-      type: String,
-      default: 'Administrativo',
-   },
-   token: {
-      type: String,
-   },
-   confirmado: {
-      type: Boolean,
-      default: false,
-   },
 });
 savePassword(AdministrativosSchema);
 comparePassword(AdministrativosSchema);

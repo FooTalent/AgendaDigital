@@ -1,45 +1,43 @@
 import { Schema, model } from 'mongoose';
 import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
+import {
+   agregadoPorSubSchema,
+   codigoPostalSubSchema,
+   confirmadoSubSchema,
+   direccionSubSchema,
+   dniSubSchema,
+   emailSubSchema,
+   escuelaIdSubSchema,
+   habilitadoSubSchema,
+   lastNameSubSchema,
+   localidadSubSchema,
+   nameSubSchema,
+   passwordSubSchema,
+   provinciaSubSchema,
+   telefonoSubSchema,
+   tokenSubSchema,
+} from './model.js';
 const PreceptorSchema = new Schema({
-   name: {
+   name: nameSubSchema,
+   lastName: lastNameSubSchema,
+   dni: dniSubSchema,
+   email: emailSubSchema,
+   password: passwordSubSchema,
+   dni: dniSubSchema,
+   token: tokenSubSchema,
+   confirmado: confirmadoSubSchema,
+   telefono: telefonoSubSchema,
+   direccion: direccionSubSchema,
+   habilitado: habilitadoSubSchema,
+   codigoPostal: codigoPostalSubSchema,
+   localidad: localidadSubSchema,
+   provicia: provinciaSubSchema,
+   escuelaId: escuelaIdSubSchema,
+   rol: {
       type: String,
-      required: true,
+      value: 'Preceptor',
    },
-   email: {
-      type: String,
-      required: true,
-      unique: true,
-   },
-   password: {
-      type: String,
-      required: true,
-      trim: true,
-   },
-   dni: {
-      type: String,
-      required: true,
-      unique: true,
-   },
-   escuelaId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Escuela',
-   },
-
-   creadoPor: {
-      type: Schema.Types.ObjectId,
-      ref: 'Administrativo',
-   },
-   role: {
-      type: String,
-      default: 'Preceptor',
-   },
-   token: {
-      type: String,
-   },
-   confirmado: {
-      type: Boolean,
-      default: false,
-   },
+   agregadoPor: agregadoPorSubSchema,
 });
 
 savePassword(PreceptorSchema);

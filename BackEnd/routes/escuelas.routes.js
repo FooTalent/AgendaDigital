@@ -8,12 +8,18 @@ import {
    nuevoPasswordEscuela,
    perfilEscuela,
    modificarEscuela,
+   agregarRegistroEscuela,
+   traerAdministrativosTodos,
+   traerPreceptorTodos,
+   traerProfesorTodos,
 } from '../controllers/escuela.controllers.js';
+import { agregarRegistro } from '../helpers/controllers.js';
 import { checkAuth } from '../middleware/checkAuth.js';
 const router = express.Router();
 
 router.post('/', registrarEscuela);
 router.get('/confirmar/:token', confirmarEscuela);
+router.post('/registrar/:id', agregarRegistroEscuela);
 router.post('/login', autenticarEscuela);
 router.put('/modificar/:id', modificarEscuela);
 
@@ -22,6 +28,15 @@ router
    .route('/olvide-password/:token')
    .get(comprobarTokenEscuela)
    .post(nuevoPasswordEscuela);
+router.post('registrar/:id', agregarRegistro);
+
 //TODO solucionar el problema de la ruta de perfil
-router.get('/perfilEscuela', checkAuth, perfilEscuela);
+router.get('/perfil', checkAuth, perfilEscuela);
+
+router.get('/:id/administrativos', traerAdministrativosTodos);
+router.get('/:id/preceptores', traerPreceptorTodos);
+router.get('/:id/profesores', traerProfesorTodos);
+// router.get('/padres', traerPadres);
+// router.get('/alumnos', traerAlumnos);
+// router.get('/alumnos/:id', traerAlumnosDePadre);
 export default router;

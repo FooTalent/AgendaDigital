@@ -1,21 +1,16 @@
 import { Schema, model } from 'mongoose';
 import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
+import {
+   confirmadoSubSchema,
+   emailSubSchema,
+   nameSubSchema,
+   passwordSubSchema,
+} from './model.js';
 const AdminSchema = new Schema(
    {
-      name: {
-         type: String,
-         required: true,
-      },
-      email: {
-         type: String,
-         required: true,
-         unique: true,
-      },
-      password: {
-         type: String,
-         required: true,
-         trim: true,
-      },
+      name: nameSubSchema,
+      email: emailSubSchema,
+      password: passwordSubSchema,
       role: {
          type: String,
          default: 'admin',
@@ -23,10 +18,7 @@ const AdminSchema = new Schema(
       token: {
          type: String,
       },
-      confirmado: {
-         type: Boolean,
-         default: false,
-      },
+      confirmado: confirmadoSubSchema,
       escuelasRegistradas: [
          {
             type: Schema.Types.ObjectId,

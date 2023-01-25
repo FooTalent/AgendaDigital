@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-import adminRoutes from './routes/admin.routes.js';
+import superAdminRoutes from './routes/superAdmin.routes.js';
 import escuelasRoutes from './routes/escuelas.routes.js';
 import administrativoRoutes from './routes/administrativo.routes.js';
 
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 dotenv.config();
 connectDB();
-app.use('/api/admin', adminRoutes);
+app.use('/api/admin', superAdminRoutes);
 app.use('/api/escuela', escuelasRoutes);
 app.use('/api/administrativo', administrativoRoutes);
 
