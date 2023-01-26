@@ -71,7 +71,7 @@ const Login = () => {
                     setbtnIniciarSesion('pButton none')
                     setTimeout(() =>  setFormSubmmit(false), 1000 );
 
-                    axios.post('https://agendadigital-production.up.railway.app/api/user/login', values)
+                    axios.post('https://agendadigital.onrender.com/api/auth/login', values)
 
                     .then(res => {
                         setRejected(false)
@@ -106,8 +106,8 @@ const Login = () => {
                                             <Link><img className='imgPass' src={img} alt="" /></Link>   
                                         </button>
                                     </div>
-                                    {rejected && <p className='error'>Error en los datos ingresados. Intente nuevamente.</p>}
                                 </div>
+                                {rejected && <p className='error'>Verifique los datos ingresados.</p>}
                                 <div className='divButtonSession'>
                                 <Field className={btnIniciarSesion} type="submit" value="Iniciar sesión"/>
                                 </div>

@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.containerNavDashboard {
+    width: 100%;
+}
+
 .container{
     background-image: url(../../../public/img/fondoDashboard.svg);
     background-position: 50% 50%;
@@ -24,10 +28,10 @@
     flex-direction: column;
     align-items:flex-start;
     border-radius: .93753em;
-    width: 10rem;
+    width: 12rem;
     height: 7rem;
     background-color: var(--morado-f-color);
-    margin: 4rem 1rem 1rem 2rem;
+    margin: 2rem 1rem 1rem 2rem;
 }
 .cardTitle{
     font-family: 'Inter';
@@ -55,5 +59,17 @@
    text-align: start;
    background-color: #6928F3;
    border: none;
+}
+
+
+@media (max-width: 576px) {
+
+    .enabledContainer {
+        display: none;
+    }
+    
+    .minimunWidth {
+        width: 20%;
+    }
 }
 

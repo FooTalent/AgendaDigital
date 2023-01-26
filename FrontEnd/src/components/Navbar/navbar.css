@@ -1,4 +1,111 @@
-.container{
+.containerAll {
+    height: 5rem;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.containerNavBar {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.notification img {
+    margin-right: 1.5rem;
+}
+
+.containerSelect {
+    margin-right: 10%;
+}
+
+.selectUser {
+    display: flex;
+    border: none;
+    background: #F4F4F4;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    margin-left: .2rem;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+.optionValue {
+    font-family: 'Inter';
+}
+
+.menuRoutes {
+    font-family: 'Inter';
+    font-weight: 700;
+}
+
+.routesNavBar p {
+    margin-left: 2%;
+}
+
+.hamburguer {
+    display: none;
+}
+
+.hamburguer img{
+    width: 2rem;
+    color: #26036E;
+}
+
+.hamburguer h3{
+    color: #26036E;
+    font-weight: 700;
+    padding-left: .5rem;
+}
+
+.disabledOption {
+    display: none;
+}
+.in{
+    text-decoration: none;
+}
+
+
+@media (max-width: 576px) {
+
+    .disableNavBar {
+        display: none;
+    }
+
+    .hamburguer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .containerSelect {
+        margin-right: 0;
+    }
+
+    .containerNavBar {
+        width: 100%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .disabledContainerNavbar {
+        display: none;
+    }
+
+    .selectWidth {
+        width: 1rem;
+    }
+
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+
+};
+
+@media (min-width: 768px) and (max-width: 1920px) {
+    
+};

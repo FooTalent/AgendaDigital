@@ -1,3 +1,4 @@
+
 .containerSideBar {
     display: flex;
     flex-direction: column;
@@ -93,4 +94,34 @@
 .btnClose p{
     margin-left: 1.5rem;
     color: var(--white);
+}
+
+@media (max-width: 576px) {
+
+    .containerSideBar {
+        width: 90%;
+    }
+
+    .school p{
+        position: relative;
+        left: 30%;
+    }
+
+   .btnCloseSideBar {
+    margin-left: 55%;
+    color: #fff;
+    font-size: 1.2rem;
+   }
+
+   .disabledSB {
+    display: none;
+   }
+
+}
+
+@media (min-width: 577px) and (max-width: 1920px) {
+
+    .btnCloseSideBar {
+        display: none;
+    }
 }
