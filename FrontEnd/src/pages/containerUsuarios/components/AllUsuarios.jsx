@@ -131,14 +131,14 @@ const AllUsuarios = ({ search }) => {
                     onClick={() => {
                       editUsers(us.dni, us.email, us._id);
                     }}
-                    src="../public/img/edit.png"
+                    src="../img/edit.png"
                     alt=""
                   />{" "}
                 </span>
                 <span>
                   {" "}
                   <img
-                    src="../public/img/delete.png"
+                    src="../img/delete.png"
                     onClick={() => deleteUser(us._id)}
                     alt=""
                   />{" "}
@@ -171,14 +171,14 @@ const AllUsuarios = ({ search }) => {
                     onClick={() => {
                       editUsers(us.dni, us.email, us._id);
                     }}
-                    src="../public/img/edit.png"
+                    src="../img/edit.png"
                     alt=""
                   />{" "}
                 </span>
                 <span>
                   {" "}
                   <img
-                    src="../public/img/delete.png"
+                    src="../img/delete.png"
                     onClick={() => deleteUser(us._id)}
                     alt=""
                   />{" "}

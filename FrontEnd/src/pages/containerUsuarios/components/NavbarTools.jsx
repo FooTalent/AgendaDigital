@@ -64,10 +64,10 @@ const NavbarTools = ({ captureSearch }) => {
         </div>
         <div className="btns">
           <div className="btn-prev center" onClick={btnPrev} disabled={pagActual <2}>
-            <img src="../public/img/btnprev.png" alt="" />
+            <img src="../img/btnprev.png" alt="" />
           </div>
           <div className="btn-next center" onClick={btnNext} disabled={users.length < firstindex}>
-          <img src="../public/img/btnnext.png" alt="" />
+          <img src="../img/btnnext.png" alt="" />
           </div>
         </div>
       </div>

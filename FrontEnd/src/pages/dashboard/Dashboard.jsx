@@ -28,7 +28,7 @@ const Dashboard = () => {
                   <button className="btnInfo">+informacion</button>
                   <img
                     className="imgInfo"
-                    src="../../../public/img/infoIcon.png"
+                    src="../img/infoIcon.png"
                     alt="info Icon"
                   />
                 </div>
@@ -44,7 +44,7 @@ const Dashboard = () => {
                   <button className="btnInfo">+informacion</button>
                   <img
                     className="imgInfo"
-                    src="../../../public/img/infoIcon.png"
+                    src="../img/infoIcon.png"
                     alt="info Icon"
                   />
                 </div>
@@ -60,7 +60,7 @@ const Dashboard = () => {
                   <button className="btnInfo">+informacion</button>
                   <img
                     className="imgInfo"
-                    src="../../../public/img/infoIcon.png"
+                    src="../img/infoIcon.png"
                     alt="info Icon"
                   />
                 </div>
