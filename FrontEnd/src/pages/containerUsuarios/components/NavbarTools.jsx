@@ -51,7 +51,7 @@ const NavbarTools = ({ captureSearch }) => {
             onChange={captureSearch}
             placeholder="Buscar"
           />
-          <img className="lupa" src="./public/img/lupa.png" alt="" />
+          <img className="lupa" src="../img/lupa.png" alt="" />
         </div>
       </div>
       <div className="navbarTools-filter2">
