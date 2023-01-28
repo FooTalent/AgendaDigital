@@ -145,19 +145,3 @@
     display: none;
    }
 }
-
-/* @media (min-width: 577px) and (max-width: 835px) {
-    .containerSideBar {
-        display: none;
-    }
-
-
-    
-} */
-
-/* @media (min-width: 836px) and (max-width: 1920px) {
-    .containerSideBar {
-        display: inline;
-    }
-    
-} */
