@@ -1,123 +1,113 @@
-import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import { Link, useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
 import './login.css'
-import { useState } from 'react';
-import axios from 'axios';
+import * as Yup from 'yup'
+import { useState } from 'react'
+import eye from '../../../public/img/ojo-cerrado.svg'
+import eyeOpen from '../../../public/img/ojo-abierto.svg'
+import Alerta from '../Alerta/Alerta'
 
+// import axios from 'axios'
 
 const Login = () => {
-    
-    const [hidden, setHidden] = useState("password");
-    const [img, setImg] = useState ("./img/ojo-cerrado.svg");
-    const [formSubmmit, setFormSubmmit] = useState(false);
-    const [rejected, setRejected ] = useState(false);
-    const [inputPass, setinputPass] = useState('password2');
-    const [inputEmail, setinputEmail] = useState('email2');
-    const [btnIniciarSesion, setbtnIniciarSesion] = useState('pButton');
-    const navigate = useNavigate();
- 
- 
-    const visible = () => {
-        if(hidden === "password"){
-            setHidden("text");
-            setImg("./img/ojo-abierto.svg")
-        } else{
-            setHidden("password");
-            setImg("./img/ojo-cerrado.svg")
+  const [visible, setVisible] = useState(false)
+  const [alerta, setAlerta] = useState({})
+  const navigate = useNavigate()
+  const initialValues = {
+    email: '',
+    password: ''
+  }
+  const required = 'Este campo es requerido'
+  const validationSchema = Yup.object({
+    email: Yup.string().email('Ingrese un correo válido').required(required),
+    password: Yup.string().required(required)
+  })
+  // https://agendadigital.onrender.com/api/auth/login
+  const onSubmit = (values) => {
+    fetch('https://agendadigital.onrender.com/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          console.log(data)
+          navigate('/dashboard')
+        } else {
+          setAlerta({
+            msg: data.msg
+          })
+          setTimeout(() => {
+            setAlerta({})
+          }, 3000)
         }
-      }
+      })
+  }
+  const { msg } = alerta
+  const formik = useFormik({ initialValues, validationSchema, onSubmit })
+  const { handleSubmit, handleChange, errors, handleBlur, touched, values } =
+    formik
+  const handleVisble = () => {
+    setVisible(!visible)
+  }
+  return (
+    <div className='bg'>
+      <form className='formAuth' onSubmit={handleSubmit}>
+        <h3 className='heading'>SCHOOL</h3>
+        <div className='sec'>
+          <p>INICIAR SESIÓN</p>
+        </div>
+        {msg && <Alerta alerta={alerta} />}
+        <div className='cont'>
+          <div className='inputs'>
+            <input
+              type='text'
+              name='email'
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder='Correo electrónico'
+            />
+            <img src='/img/correo.svg' alt='' className='correo--icon' />
+          </div>
+          {errors.email && touched.email && (
+            <p className='error'>{errors.email}</p>
+          )}
+          <div className='inputs'>
+            <input
+              id='password'
+              name='password'
+              type={visible ? 'text' : 'password'}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder='Contraseña'
+            />
+            <img
+              className='eye--icon'
+              onClick={handleVisble}
+              src={visible ? eyeOpen : eye}
+              alt=''
+            />
+          </div>
+          {errors.password && touched.password && (
+            <p className='error'>{errors.password}</p>
+          )}
+          <Link to='/forgot-password' className='forgot'>
+            ¿Olvidaste tu contraseña?
+          </Link>
+          <input
+            className='submitValues'
+            type='submit'
+            value='Iniciar sesión'
+          />
+        </div>
+      </form>
+    </div>
+  )
+}
 
-    const reEntryPass = () => setRejected(false)
-
-    return (
-        <>
-            <div className='containerLogin'>
-                <Formik
-                initialValues={{ 
-                email: '', 
-                password: '' }}
-
-                validate={values => {
-
-                    const errors = {};
-
-                    if (!values.email) {
-                      setinputEmail('email2 valueInvalid')
-                    } else if (
-                      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        setinputEmail('email2 valueInvalid')
-                    } else {
-                        setinputEmail('email2')
-                    }
-
-                                        
-                    if (!values.password) {
-                        setinputPass('password2 valueInvalid ')
-                    } else{
-                        setinputPass('password2');
-                    }
-                    return errors;
-                
-                }}
-            
-
-                onSubmit={(values, {resetForm}) => {
-
-                    resetForm();
-                    console.log('enviado');
-                    setFormSubmmit(true);
-                    setbtnIniciarSesion('pButton none')
-                    setTimeout(() =>  setFormSubmmit(false), 1000 );
-                    axios.post('https://agendadigital-production.up.railway.app/api/user/login', values)
-                    .then(res => {
-                        setRejected(false)
-                        navigate('/dashboard')
-
-                })
-                    .catch(err => {
-                        setRejected(true)
-                        setbtnIniciarSesion('pButton')}
-                        )
-
-
-                }}
-                >
-                    {() => (
-                        <Form className='formLogin'>
-                            <div className='divNameSchool'><p className='nameSchool'>SCHOOL</p></div>
-                            <div className='titleLogin'><h1>INICIAR SESIÓN</h1></div>
-                            <div className='containerForm'>
-                                <div className='containerEmail2'>
-                                    <Field className={inputEmail} type="email" name="email" placeholder='Correo electrónico' />
-                                    <div>
-                                    <button disabled className='btnIconEmail'>
-                                    <img className='imgEmail' src="/img/correo.svg" alt="" />
-                                    </button>
-                                    </div>
-                                </div>
-                                <div className='containerPass2'>
-                                    <Field onKeyUp={reEntryPass} id = "password" name="password" type = {hidden} className={inputPass} placeholder='Contraseña'/> 
-                                    <div>
-                                        <button className='btnIconPass' onClick={visible}>
-                                            <Link><img className='imgPass' src={img} alt="" /></Link>   
-                                        </button>
-                                    </div>
-                                    {rejected && <p className='error'>Error en los datos ingresados. Intente nuevamente.</p>}
-                                </div>
-                                <div className='divButtonSession'>
-                                <Field className={btnIniciarSesion} type="submit" value="Iniciar sesión"/>
-                                </div>
-                                {formSubmmit && <img className='ringsLoader' src='./img/ringsLoader.svg'/>}
-
-                            </div>
-                        </Form>
-                    )}
-                </Formik>
-            </div> 
-        </>
-    );
-};
-
-export default Login;
+export default Login
