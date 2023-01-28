@@ -124,6 +124,28 @@
 
 }
 
+@media (min-width: 577px) and (max-width: 992px) {
+    .containerSideBar {
+        width: 90%;
+    }
+
+    .school p{
+        position: relative;
+        left: 30%;
+    }
+
+   .btnCloseSideBar {
+    display: inline;
+    margin-left: 55%;
+    color: #fff;
+    font-size: 1.2rem;
+   }
+
+   .disabledSB {
+    display: none;
+   }
+}
+
 /* @media (min-width: 577px) and (max-width: 835px) {
     .containerSideBar {
         display: none;
