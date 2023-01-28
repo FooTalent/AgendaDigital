@@ -99,3 +99,16 @@ border-radius: 3.43529px;
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 710.98px) {
+  .navbarTools-search-container{
+    width: 100%;
+  }
+.navbarTools-filter2{
+  gap: 5px;
+}
+
+.navbarTools-filter1{
+  padding-left: 0;
+}
+}

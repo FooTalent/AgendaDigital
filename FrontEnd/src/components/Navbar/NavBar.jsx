@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../../Context/GlobalContext";
 import "./navbar.css";
 
@@ -17,15 +18,15 @@ const NavBar = () => {
     <div className={`containerAll ${enabled ? "disabledContainerNavbar" : null}`}>
       <div className="containerNavBar">
         <div className="hamburguer">
-            <img onClick={handlerSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
-            <h3>ESCUELA</h3>
+            <img onClick={handlerSideBar} src="../img/hamburger_icon.png" alt="hamburger icon" />
+            <Link className="in" to='/dashboard'><h3>ESCUELA</h3></Link> 
         </div>
         {/* prueba */}
         <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
         </div>
         <div className="selectUser containerSelect">
-          <img src="./img/user.svg" alt="user" />
+          <img src="../img/user.svg" alt="user" />
           <select className="selectUser selectWidth" name="selectUser" id="selectUser">
             <option className="optionValue" value="admin">
               Admin

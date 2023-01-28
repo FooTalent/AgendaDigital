@@ -134,7 +134,7 @@ const AddUsuario = () => {
                     id="password"
                     name="password"
                     type="password"
-                    autoComplete="true"
+                    autoComplete="true" 
                     className={inputPass}
                   
                   />
