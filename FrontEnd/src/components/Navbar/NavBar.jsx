@@ -16,13 +16,13 @@ const NavBar = () => {
   return (
     <div className={`containerAll ${enabled ? "disabledContainerNavbar" : null}`}>
       <div className="containerNavBar">
-        <div className="notification disableNavBar">
-          <img src="./img/notification.svg" alt="notification" />
-
-        </div>
         <div className="hamburguer">
             <img onClick={handlerSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
             <h3>ESCUELA</h3>
+        </div>
+        {/* prueba */}
+        <div className="notification disableNavBar">
+          <img src="./img/notification.svg" alt="notification" />
         </div>
         <div className="selectUser containerSelect">
           <img src="./img/user.svg" alt="user" />
