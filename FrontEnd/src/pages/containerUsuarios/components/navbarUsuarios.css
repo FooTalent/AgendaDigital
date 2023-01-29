@@ -23,3 +23,9 @@
   line-height: 22px;
   color: var(--letra-f-color);
 }
+
+@media (max-width: 710.98px) {
+  .userAll-btn{
+    font-size: 15px;
+  }
+}

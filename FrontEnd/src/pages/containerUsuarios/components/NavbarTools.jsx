@@ -10,29 +10,35 @@ const NavbarTools = ({ captureSearch }) => {
     firstindex,
     setfirstindex,
     setpagActual,
-    users,
+    users
+    , setfirstindex2, pagActual2, setpagActual2
   } = useContext(GlobalContext);
 
   const btnNext = () => {
+    console.log(firstindex);
+    if (users.length -1< firstindex) return;
     const nextpage = pagActual + 1;
-
+    const nextpage2 = pagActual2 + 1;
     setfirstindex(nextpage * pagxhoja);
-    if (users.length < firstindex) return;
+    setfirstindex2( nextpage2 * 5)
+   
     setpagActual(nextpage);
-
+    setpagActual2(nextpage2)
     // console.log(firstindex);
   };
 
   const btnPrev = () => {
+    if (pagActual < 1) return;
     const prevpage = pagActual - 1;
     setfirstindex(prevpage * pagxhoja);
+    setfirstindex2( prevpage * 5)
     setpagActual(prevpage);
     // console.log(pagActual);
   };
 
-  useEffect(() => {
-    // console.log(pagxhoja);
-  }, [pagxhoja]);
+  // useEffect(() => {
+  //   console.log(pagActual);
+  // }, [pagxhoja]);
 
   return (
     <div className="navbarTools">
@@ -57,7 +63,7 @@ const NavbarTools = ({ captureSearch }) => {
           </select>
         </div>
         <div className="btns">
-          <div className="btn-prev center" onClick={btnPrev} disabled={pagActual === 0}>
+          <div className="btn-prev center" onClick={btnPrev} disabled={pagActual <2}>
             <img src="../public/img/btnprev.png" alt="" />
           </div>
           <div className="btn-next center" onClick={btnNext} disabled={users.length < firstindex}>

@@ -106,8 +106,8 @@ const Login = () => {
                                             <Link><img className='imgPass' src={img} alt="" /></Link>   
                                         </button>
                                     </div>
-                                    {rejected && <p className='error'>Error en los datos ingresados. Intente nuevamente.</p>}
                                 </div>
+                                {rejected && <p className='error'>Verifique los datos ingresados.</p>}
                                 <div className='divButtonSession'>
                                 <Field className={btnIniciarSesion} type="submit" value="Iniciar sesión"/>
                                 </div>

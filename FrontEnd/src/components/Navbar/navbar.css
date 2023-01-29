@@ -64,6 +64,9 @@
 .disabledOption {
     display: none;
 }
+.in{
+    text-decoration: none;
+}
 
 
 @media (max-width: 576px) {
