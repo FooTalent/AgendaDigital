@@ -193,6 +193,17 @@ button:disabled {
     background-color: #E6E0F2;
 }
 
+
+.olvidoPass{
+    color: var(--bg-btn);
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: .1em;
+
+
+}
+
 /* Medias queries */
 
 @media screen and (max-width:834px) {
@@ -220,6 +231,10 @@ button:disabled {
     .divButtonSession{
         width: 13em;
         height: 2.5em;
+    }
+    .olvidoPass{
+        font-size: 14px;
+        width: 64%;
     }
 }
 
@@ -256,5 +271,8 @@ button:disabled {
         font-family: 'Inter';
         margin-top: .4em;
         font-size: .6em;
+    }
+    .olvidoPass{
+        font-size: 10px;
     }
 }

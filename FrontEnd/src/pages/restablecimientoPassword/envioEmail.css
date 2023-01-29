@@ -1,0 +1,11 @@
+.parrafoResetPass {
+    color: #26036E;
+    width: 50%;
+}
+
+.cancelar {
+    width: 25%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
