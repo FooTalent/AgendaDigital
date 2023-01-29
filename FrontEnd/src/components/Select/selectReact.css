@@ -1,0 +1,66 @@
+.selectContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 9.5rem;
+    height: 2.3rem;
+    background-color: #F4F4F4;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+.selectContainer p {
+    font-weight: bold;
+}
+
+.userSelect {
+    margin-left: -.8rem;
+}
+
+/* -------------------------------------------------------------- */
+
+.containerDeployment {
+    margin-top: .6px;
+    background: #F4F4F4;
+    width: 9.5rem;
+}
+
+.selectNav {
+    display: flex;
+    height: 2rem;
+    cursor: pointer;
+    align-items: center;
+}
+
+.imgSelect {
+    margin-left: .5rem;
+}
+
+.selectNav p {
+    margin-left: .5rem;
+}
+
+.selectNav:hover {
+    background: #6889FF;
+}
+
+.disabledDeployment {
+    display: none;
+}
+
+@media (max-width: 576px) {
+
+    .selectContainer {
+        width: 4rem;
+        margin-top: 0   ;
+    }
+
+    .containerDeployment {
+        margin-left: -4rem;
+        width: 8rem;
+    }
+
+    .disabledUserMobile {
+        display: none;
+    }
+}

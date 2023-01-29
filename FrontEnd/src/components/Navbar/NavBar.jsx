@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../Context/GlobalContext";
+import SelectReact from "../Select/SelectReact";
 import "./navbar.css";
 
 const NavBar = () => {
@@ -24,11 +25,12 @@ const NavBar = () => {
         <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
         </div>
-        <div className="selectUser containerSelect">
+        <SelectReact />
+        {/* <div className="selectUser containerSelect">
           <img src="../img/user.svg" alt="user" />
           <select className="selectUser selectWidth" name="selectUser" id="selectUser">
             <option className="optionValue" value="student">
-              {/* nombre de acuerdo al usuario */}
+              {/* nombre de acuerdo al usuario * /}
               Admin
             </option>
             <option className="optionValue" value="admin">
@@ -39,7 +41,7 @@ const NavBar = () => {
             </option>
 
           </select>
-        </div>
+        </div> */}
       </div>
       <div className="routesNavBar disableNavBar">
         <p>
