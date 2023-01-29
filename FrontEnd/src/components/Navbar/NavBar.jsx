@@ -20,22 +20,23 @@ const NavBar = () => {
             <img onClick={handlerSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
             <h3>ESCUELA</h3>
         </div>
-        {/* prueba */}
         <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
         </div>
         <div className="selectUser containerSelect">
           <img src="./img/user.svg" alt="user" />
           <select className="selectUser selectWidth" name="selectUser" id="selectUser">
-            <option className="optionValue" value="admin">
+            <option className="optionValue" value="student">
+              {/* nombre de acuerdo al usuario */}
               Admin
             </option>
+            <option className="optionValue" value="admin">
+              Mi perfil
+            </option>
             <option className="optionValue" value="dad/mother">
-              Dad/ Mother
+              Cerrar sesión
             </option>
-            <option className="optionValue" value="student">
-              Student
-            </option>
+
           </select>
         </div>
       </div>
