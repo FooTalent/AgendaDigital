@@ -25,23 +25,7 @@ const NavBar = () => {
         <div className="notification disableNavBar">
           <img src="./img/notification.svg" alt="notification" />
         </div>
-        <SelectReact />
-        {/* <div className="selectUser containerSelect">
-          <img src="../img/user.svg" alt="user" />
-          <select className="selectUser selectWidth" name="selectUser" id="selectUser">
-            <option className="optionValue" value="student">
-              {/* nombre de acuerdo al usuario * /}
-              Admin
-            </option>
-            <option className="optionValue" value="admin">
-              Mi perfil
-            </option>
-            <option className="optionValue" value="dad/mother">
-              Cerrar sesión
-            </option>
-
-          </select>
-        </div> */}
+        <SelectReact /> 
       </div>
       <div className="routesNavBar disableNavBar">
         <p>

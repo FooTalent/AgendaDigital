@@ -4,12 +4,11 @@ import { useState } from "react";
 const SelectReact = () => {
     const [deploymentSelect, setDeploymentSelect] = useState(false);
 
-    const deployment = () => {
-        deploymentSelect === false ? setDeploymentSelect(true) : setDeploymentSelect(false)
-    };
+    const deployment = () => deploymentSelect === false ? setDeploymentSelect(true) : setDeploymentSelect(false);
+    
   return (
     <div>
-      <div  onClick={deployment} className="selectContainer">
+      <div onClick={deployment} className="selectContainer">
         <img className="userSelect" src="./img/user.svg" alt="user" />
         <p className='disabledUserMobile'>Admin</p>
         <img src="./img/despliegueSelect.svg" alt="flecha" />
