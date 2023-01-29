@@ -1,14 +1,11 @@
 import { Schema, model } from 'mongoose';
-import bcrypt from 'bcrypt';
 import { comparePassword, savePassword } from '../helpers/functionBcrypt.js';
 import {
    agregadoPorSubSchema,
    codigoPostalSubSchema,
    confirmadoSubSchema,
-   direccionSubSchema,
    dniSubSchema,
    emailSubSchema,
-   escuelaIdSubSchema,
    habilitadoSubSchema,
    lastNameSubSchema,
    localidadSubSchema,
@@ -18,8 +15,7 @@ import {
    telefonoSubSchema,
    tokenSubSchema,
 } from './model.js';
-
-const AdministrativosSchema = new Schema({
+const PadresSchema = new Schema({
    name: nameSubSchema,
    lastName: lastNameSubSchema,
    email: emailSubSchema,
@@ -33,20 +29,22 @@ const AdministrativosSchema = new Schema({
    codigoPostal: codigoPostalSubSchema,
    localidad: localidadSubSchema,
    provicia: provinciaSubSchema,
-   escuelaId: escuelaIdSubSchema,
    rol: {
       type: String,
-      value: 'Administrativo',
+      value: 'Padre',
    },
    agregadoPor: agregadoPorSubSchema,
-   preceptorId: [
+   genero: {
+      type: String,
+   },
+   hijos: [
       {
          type: Schema.Types.ObjectId,
-         ref: 'Preceptor',
+         ref: 'Alumno',
       },
    ],
 });
-savePassword(AdministrativosSchema);
-comparePassword(AdministrativosSchema);
-const Administrativo = model('Administrativo', AdministrativosSchema);
-export default Administrativo;
+savePassword(PadresSchema);
+comparePassword(PadresSchema);
+const Padre = model('Padre', PadresSchema);
+export default Padre;

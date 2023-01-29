@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import Admin from '../models/Admin.model.js';
 import Escuela from '../models/Escuela.model.js';
+import Admin from '../models/SuperAdmin.model.js';
 
 export const checkAuth = async (req, res, next) => {
    let token;
@@ -12,7 +12,13 @@ export const checkAuth = async (req, res, next) => {
          token = req.headers.authorization.split(' ')[1];
 
          const decoded = jwt.verify(token, process.env.JWT_SECRET);
+         console.log('decoded: ', decoded);
+         
+
          req.admin = await Admin.findById(decoded.id).select(
+            '-password -confirmado -token -createdAt -updatedAt -__v'
+         );
+         req.escuela = await Escuela.findById(decoded.id).select(
             '-password -confirmado -token -createdAt -updatedAt -__v'
          );
          //Todo: Check if this is needed
