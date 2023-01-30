@@ -53,6 +53,12 @@
     text-decoration: none;
 }
 
+.containerDirectedRoutes {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: .5rem;
+    margin-left: 1rem;
+}
 
 @media (max-width: 576px) {
 
