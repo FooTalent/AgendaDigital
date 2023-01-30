@@ -1,5 +1,6 @@
 import './selectReact.css'
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const SelectReact = () => {
     const [deploymentSelect, setDeploymentSelect] = useState(false);
@@ -20,11 +21,15 @@ const SelectReact = () => {
       >
         <div className="selectNav">
           <img className='imgSelect' src="./img/userSelect.svg" alt="usuario" />
-          <p>Mi perfil</p>
+          <Link className='miPerfilSelect'>
+            <p>Mi perfil</p>
+          </Link>
         </div>
         <div className="selectNav">
           <img className='imgSelect' src="./img/cerrarSesionSelect.svg" alt="cerrar sesion" />
-          <p>Cerrar sesión</p>
+          <Link className='closeSessionSelect'>
+            <p>Cerrar sesión</p>
+          </Link>
         </div>
       </div>
     </div>
