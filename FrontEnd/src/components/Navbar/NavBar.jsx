@@ -5,7 +5,7 @@ import SelectReact from "../Select/SelectReact";
 import "./navbar.css";
 
 const NavBar = () => {
-  const { setEnabledSB, setEnabled, enabled, setMaximunWidth } = useContext(GlobalContext);
+  const { setEnabledSB, setEnabled, enabled, setMaximunWidth, directedRoute } = useContext(GlobalContext);
 
     const handlerSideBar = () => {
         setEnabledSB(false);
@@ -28,9 +28,11 @@ const NavBar = () => {
         <SelectReact /> 
       </div>
       <div className="routesNavBar disableNavBar">
-        <p>
-            <span className="menuRoutes">Menú</span> {`>`} Dashboard
-        </p>
+        <div className="containerDirectedRoutes">
+            <span className="menuRoutes">Menú</span>
+            <p>{`>`} Dashboard </p>
+            { directedRoute ? <p>{`>`} {directedRoute}</p> : undefined }
+        </div>
       </div>
     </div>
   );

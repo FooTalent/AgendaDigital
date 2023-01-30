@@ -10,6 +10,8 @@ const GlobalContextProvider = (props) => {
   const [enabled, setEnabled] = useState(false);
   const [enabledSB, setEnabledSB] = useState(true);
   const [maximunWidth, setMaximunWidth] = useState(true);
+  const [directedRoute, setDirectedRoute] = useState("");
+
 
 
   const [pagActual, setpagActual] = useState(0)
@@ -19,7 +21,7 @@ const GlobalContextProvider = (props) => {
   const [firstindex2, setfirstindex2] = useState(0)
 
   return (
-    <GlobalContext.Provider value={{/*  orderByName, */ users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual, enabled,  setEnabled, enabledSB, setEnabledSB, maximunWidth, setMaximunWidth, firstindex2, setfirstindex2, pagActual2, setpagActual2}}>
+    <GlobalContext.Provider value={{/*  orderByName, */ users, setusers, userorder, setpagxhoja, pagxhoja, pagActual, firstindex, setfirstindex, setpagActual, enabled,  setEnabled, enabledSB, setEnabledSB, maximunWidth, setMaximunWidth, firstindex2, setfirstindex2, pagActual2, setpagActual2, directedRoute, setDirectedRoute}}>
       {props.children}
     </GlobalContext.Provider>
   );

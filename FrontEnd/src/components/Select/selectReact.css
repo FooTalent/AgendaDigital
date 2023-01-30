@@ -48,6 +48,14 @@
     display: none;
 }
 
+.miPerfilSelect {
+    text-decoration: none;
+}
+
+.closeSessionSelect {
+    text-decoration: none;    
+}
+
 @media (max-width: 576px) {
 
     .selectContainer {
