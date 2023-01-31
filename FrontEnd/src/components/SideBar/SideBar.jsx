@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { GlobalContext } from "../../Context/GlobalContext";
 import "./sideBar.css";
 
@@ -31,8 +31,10 @@ const SideBar = () => {
         <div onClick={closeBtn} className="btnCloseSideBar">X</div>
       </div>
       <div className="user">
-        <img src="../img/admin.svg" alt="imagen de usuario" />
-        <h3>Logo</h3>
+        <Link className="logoSchool" to={"/dashboard"}>
+          <img src="../img/admin.svg" alt="imagen de usuario" />
+          <h3>Logo</h3>
+        </Link>
       </div>
       <div className="containerRoutes">
         <div className="routes">
