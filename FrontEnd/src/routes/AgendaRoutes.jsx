@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from '../components/Login/Login';
-
+import ProfileUser from '../components/ProfileUser/ProfileUser';
 import ContainerUsuarios from '../pages/containerUsuarios/ContainerUsuarios';
 import Dashboard from '../pages/dashboard/Dashboard';
 import Home from '../pages/home/Home'; 
@@ -20,6 +20,7 @@ const AgendaRoutes = () => {
                 {/* <Route path='/dashboard/' element={ <Dashboard/> }/> */}
                 <Route path='/usuarios' element={ <ContainerUsuarios/> }/>                
                 <Route path='/dashboard' element={ <Dashboard/> }/>
+                <Route path='/profile' element={ <ProfileUser/> }/>
                 <Route path='/usuarios/all' element={ <ContainerUsuarios pg='all'/> }/>  
                 <Route path='/usuarios/add' element={ <ContainerUsuarios pg='add' /> }/>                 
                 <Route path='*' element={ <NotFound/> }/>
