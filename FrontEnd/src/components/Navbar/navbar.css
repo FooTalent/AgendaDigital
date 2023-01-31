@@ -1,5 +1,4 @@
 .containerAll {
-    height: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,34 +6,20 @@
 
 .containerNavBar {
     width: 100%;
+    height: 3.5rem;
     background: #fff;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-end;
+    margin-top: 2rem;
 }
 
 .notification img {
     margin-right: 1.5rem;
-    background-color: transparent;
-}
-
-.containerSelect {
-    margin-right: 10%;
-}
-
-.selectUser {
-    display: flex;
-    border: none;
-    background: #F4F4F4;
-    border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
-    margin-left: .2rem;
-    font-family: 'Inter';
-    font-weight: bold;
-}
-
-.optionValue {
-    font-family: 'Inter';
+    background-color: #F4F4F4;
+    border-radius: .8rem;
+    padding: .5rem;
+    cursor: pointer;
 }
 
 .menuRoutes {
@@ -68,6 +53,12 @@
     text-decoration: none;
 }
 
+.containerDirectedRoutes {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: .5rem;
+    margin-left: 1rem;
+}
 
 @media (max-width: 576px) {
 
@@ -90,16 +81,17 @@
         width: 100%;
         background: #fff;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
+        margin-top: 1.5rem;
     }
 
     .disabledContainerNavbar {
         display: none;
     }
 
-    .selectWidth {
-        width: 1rem;
+    .notification {
+        margin-top: 0;
     }
 
 }
@@ -124,8 +116,9 @@
         width: 100%;
         background: #fff;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
+        margin-top: 1.5rem;
     }
 
     .disabledContainerNavbar {
@@ -137,7 +130,8 @@
     }
 
     .notification {
-        margin-left: 45%
+        margin-left: 45%;
+        margin-top: 0;
     }
 
     .routesNavBar {

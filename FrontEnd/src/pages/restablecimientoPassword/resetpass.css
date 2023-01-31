@@ -1,0 +1,44 @@
+.parrafo {
+    color: #26036E;
+    width: 50%;
+    margin-bottom: 0.1em;
+    margin-top: 0.2em;
+}
+
+
+@media screen and (max-width: 834px) {
+    .parrafo{
+        width: 65%;
+    }
+}
+
+
+@media screen and (max-width:530px) {
+    .parrafo{
+        width: 65%;
+        font-size: 13px;
+    }
+
+    .containerForm {
+        margin-top: 4%;
+    }
+
+    .formLogin .titleLogin h1 {
+        font-size: 106%;
+    }
+
+}
+
+@media screen and (max-width:380px) {
+    .formLogin .titleLogin h1 {
+        font-size: 77%;
+    }
+    .parrafo {
+        width: 64%;
+        font-size: 10px;
+    }
+
+    .pButton {
+        margin-top: 2em;        
+    }
+}

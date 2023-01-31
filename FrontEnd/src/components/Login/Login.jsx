@@ -82,9 +82,8 @@ const Login = () => {
                         setRejected(true)
                         setbtnIniciarSesion('pButton')}
                         )
-
-
                 }}
+
                 >
                     {() => (
                         <Form className='formLogin'>
@@ -107,6 +106,7 @@ const Login = () => {
                                         </button>
                                     </div>
                                 </div>
+                                <NavLink to={'/login/envioemail'}  className='olvidoPass'><span>¿Olvido su contraseña?</span></NavLink>
                                 {rejected && <p className='error'>Verifique los datos ingresados.</p>}
                                 <div className='divButtonSession'>
                                 <Field className={btnIniciarSesion} type="submit" value="Iniciar sesión"/>
