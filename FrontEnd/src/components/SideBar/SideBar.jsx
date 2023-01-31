@@ -32,8 +32,8 @@ const SideBar = () => {
       </div>
       <div className="user">
         <Link className="logoSchool" to={"/dashboard"}>
-          <img src="../img/admin.svg" alt="imagen de usuario" />
-          <h3>Logo</h3>
+          <img src="../img/logoAulaEquis.svg" alt="imagen de usuario" />
+          <h3>Aula Equis</h3>
         </Link>
       </div>
       <div className="containerRoutes">

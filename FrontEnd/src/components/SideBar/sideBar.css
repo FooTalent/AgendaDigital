@@ -37,6 +37,10 @@
     margin-top: .5rem;
 }
 
+.user img {
+    width: 35%;
+}
+
 .containerRoutes {
     background-color: var(--light-blue);
     display: flex;
