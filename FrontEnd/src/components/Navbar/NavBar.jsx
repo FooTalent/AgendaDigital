@@ -19,11 +19,11 @@ const NavBar = () => {
     <div className={`containerAll ${enabled ? "disabledContainerNavbar" : null}`}>
       <div className="containerNavBar">
         <div className="hamburguer">
-            <img onClick={handlerSideBar} src="../img/hamburger_icon.png" alt="hamburger icon" />
+            <img onClick={handlerSideBar} src="./img/hamburger_icon.png" alt="hamburger icon" />
             <Link className="in" to='/dashboard'><h3>ESCUELA</h3></Link> 
         </div>
         <div className="notification disableNavBar">
-          <img src="./img/notification.svg" alt="notification" />
+          <img src="../../../img/notification.svg" alt="notification" />
         </div>
         <SelectReact /> 
       </div>

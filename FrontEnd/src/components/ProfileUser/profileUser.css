@@ -1,0 +1,81 @@
+.containerProfile {
+    background-image: url(../../../public/img/fondoDashboard.svg);
+    height: 100vh;
+    width: 100%; 
+    background-repeat: no-repeat;
+    background-size:auto; 
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.cardProfile {
+    width: 29rem;
+    height: 23rem;
+    background: #E6E0F2;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 1.56989px 3px rgba(0, 0, 0, 0.25);
+    display: flex;
+}
+
+.imageProfile {
+    width: 25%;
+    margin: 1.5rem 0 0 1.5rem;
+}
+
+.containerInfoProfile {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 2rem;
+}
+
+.itemProfile h4 {
+    font-family: 'Inter';
+    font-weight: 700;
+    margin: 2rem 0 .5rem 0;
+    color: #26036E;
+}
+
+.itemProfile p {
+    margin-bottom: .5rem;
+    color: #26036E;
+}
+
+
+@media (max-width: 576px) {
+
+    .cardProfile {
+        width: 90%;
+        height: auto;
+        background: #E6E0F2;
+        margin-top: 3rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .imageProfile {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .imageProfile img {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+
+    .containerInfoProfile {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 0;
+    }
+}
