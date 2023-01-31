@@ -67,6 +67,13 @@
 .editNavLink {
     text-decoration: none;
     margin-left: 5%;
+    width: 100%;
+}
+
+.editNavLink:hover {
+    background-Color: #6889FF;
+    width: 100%;
+    margin-left: 0;
 }
 
 .containerBtnClose {
