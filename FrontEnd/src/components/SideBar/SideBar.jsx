@@ -32,7 +32,7 @@ const SideBar = () => {
       </div>
       <div className="user">
         <img src="../img/admin.svg" alt="imagen de usuario" />
-        <h3>ADMIN</h3>
+        <h3>Logo</h3>
       </div>
       <div className="containerRoutes">
         <div className="routes">
