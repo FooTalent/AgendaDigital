@@ -6,7 +6,9 @@ import ContainerUsuarios from '../pages/containerUsuarios/ContainerUsuarios';
 import Dashboard from '../pages/dashboard/Dashboard';
 import Home from '../pages/home/Home'; 
 import NotFound from '../pages/notfound/NotFound';
-import EnvioEmail from '../pages/restablecimientoPassword/envioEmail';
+import RestablecimientoDePass from '../pages/reseteoDePassword/RestablecimientoDePass';
+// import EnvioEmail from '../pages/restablecimientoPassword/envioEmail';
+import ResetPass from '../pages/restablecimientoPassword/ResetPass';
 
 
 const AgendaRoutes = () => {
@@ -18,7 +20,8 @@ const AgendaRoutes = () => {
             <Routes>
                 <Route path='/' element={ <Home/> }/>
                 <Route path='/login' element={ <Login/> }/>
-                <Route path='/login/envioemail' element={ <EnvioEmail/> }/>
+                <Route path='/login/envioemail' element={ <RestablecimientoDePass/> }/> 
+                <Route path='/login/resetpassword' element={ <ResetPass/>}/> 
                 {/* <Route path='/dashboard/' element={ <Dashboard/> }/> */}
                 <Route path='/usuarios' element={ <ContainerUsuarios/> }/>                
                 <Route path='/dashboard' element={ <Dashboard/> }/>
