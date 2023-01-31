@@ -40,6 +40,10 @@ const ProfileUser = () => {
                 </div>
               </div>
             </div>
+          <div className="editProfile">
+            <img src="../../../img/editProfile.svg" alt="edit profile" />
+            <p>Editar perfil</p>
+          </div>
           </div>
         </div>
       </div>
