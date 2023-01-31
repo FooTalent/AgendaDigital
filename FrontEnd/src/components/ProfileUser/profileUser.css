@@ -1,12 +1,13 @@
 .containerProfile {
     background-image: url(../../../public/img/fondoDashboard.svg);
     height: 100vh;
-    width: 100%; 
+    width: 100%;
     background-repeat: no-repeat;
-    background-size:auto; 
+    background-size: auto;
     display: flex;
-    justify-content: center;
-    align-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .cardProfile {
@@ -54,6 +55,25 @@
     margin-bottom: 0;
 }
 
+.editProfile {
+    width: 29rem;
+    height: 4rem;
+    background: var(--bg-btn);
+    margin-top: .5rem;
+    border-radius: .5rem;
+    box-shadow: 0px 1.56989px 3px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.editProfile p {
+    color: #fff;
+    margin-left: .5rem;
+    font-size: 1.2rem;
+}
+
 
 @media (max-width: 576px) {
 
@@ -67,7 +87,7 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     .imageProfile {
         margin-left: 0;
         margin-top: 0;
@@ -110,6 +130,7 @@
         height: auto;
         margin: 2rem 5rem auto 5rem;
     }
+
     .infoProfile {
         margin-bottom: 2rem;
     }
