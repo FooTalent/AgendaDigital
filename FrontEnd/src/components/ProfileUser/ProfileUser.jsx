@@ -16,14 +16,14 @@ const ProfileUser = () => {
         <div className= {`${maximunWidth ? "containerNavDashboard" : "minimunWidth"}`}>
           <NavBar />
           <div className={`containerProfile ${enabled ? "enabledContainer" : null}`}>
-            <div className="cardProfile">
+            <div className="cardProfile showSidebar">
               <div className="imageProfile">
                 <img src="./img/userImageProfile.svg" alt="user profile" />
               </div>
               <div className="containerInfoProfile">
                 <div className="itemProfile ">
                   <h4>Juan Perez</h4>
-                  <p>Administrador</p>
+                  <p className='userProfile'>Administrador</p>
                 </div>
                 <div className="itemProfile">
                   <h4>E-mail</h4>
@@ -34,7 +34,7 @@ const ProfileUser = () => {
                   <h4>Contraseña</h4>
                   <Link> Cambiar contraseña </Link>
                 </div>
-                <div className="itemProfile">
+                <div className="itemProfile infoProfile">
                   <h4>Información 1</h4>
                   <Link> Cambiar Información 1 </Link>
                 </div>
