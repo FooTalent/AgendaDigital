@@ -13,6 +13,7 @@ import {
    traerProfesorTodos,
    traerPreceptorTodos,
 } from '../controllers/administrativo.controllers.js';
+import { checkAuth } from '../middleware/checkAuth.js';
 const router = express.Router();
 
 
@@ -21,7 +22,7 @@ router
    .route('/confirmar/:token')
    .get(confirmarAdministrativo)
    .post(nuevoPasswordAdministrativo);
-router.post('/registrar/:id', agregarRegistroAdministrativo);
+router.post('/registrar/:id', agregarRegistroAdministrativo); //!
 router.post('/login', autenticarAdministrativo);
 
 router.put('/modificar/:id', modificarAdministrativo);
@@ -32,11 +33,11 @@ router
    .get(comprobarTokenAdministrativo)
    .post(nuevoPasswordAdministrativo);
 
-router.get('/perfil', perfilAdministrativo);
+router.get('/perfil', checkAuth,  perfilAdministrativo);
 
-router.get('/:id/administrativos', traerAdministrativosTodos);
-router.get('/:id/preceptores', traerPreceptorTodos);
-router.get('/:id/profesores', traerProfesorTodos);
+router.get('/:id/administrativos', traerAdministrativosTodos); //!
+router.get('/:id/preceptores', traerPreceptorTodos); //!
+router.get('/:id/profesores', traerProfesorTodos); //!
 // router.get('/padres', traerPadres);
 // router.get('/alumnos', traerAlumnos);
 // router.get('/alumnos/:id', traerAlumnosDePadre);

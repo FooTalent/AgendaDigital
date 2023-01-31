@@ -27,5 +27,6 @@ export const traerPreceptorTodos = traerPreceptores(Administrativo)
 
 export const perfilAdministrativo = async (req, res) => {
    const { administrativo } = req;
+   console.log(administrativo);
    res.json(administrativo);
 };

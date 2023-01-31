@@ -32,18 +32,25 @@ const EscuelaSchema = new Schema({
          ref: 'Preceptor',
       },
    ],
-   // profesoresId: {
-   //    type: array,
-   //    default: [],
-   // },
-   // alumnosId: {
-   //    type: array,
-   //    default: [],
-   // },
-   // padreId: {
-   //    type: array,
-   //    default: [],
-   // },
+   profesorId: [
+      {
+         type: Schema.Types.ObjectId,
+         ref: 'Profesor',
+      },
+   ],alumnoId: [
+      {
+         type: Schema.Types.ObjectId,
+         ref: 'Alumno',
+      },
+      
+   ],
+   padreId: [
+      {
+         type: Schema.Types.ObjectId,
+         ref: 'Padre',
+      },
+      
+   ],
    token: {
       type: String,
    },

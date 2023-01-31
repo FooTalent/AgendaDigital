@@ -18,6 +18,7 @@ import {
    tokenSubSchema,
 } from './model.js';
 const PreceptorSchema = new Schema({
+   
    name: nameSubSchema,
    lastName: lastNameSubSchema,
    dni: dniSubSchema,

@@ -44,7 +44,31 @@ const AdministrativosSchema = new Schema({
          type: Schema.Types.ObjectId,
          ref: 'Preceptor',
       },
+      
    ],
+   profesorId: [
+      {
+         type: Schema.Types.ObjectId,
+         ref: 'Profesor',
+      },
+      
+   ],
+   alumnoId: [
+      {
+         type: Schema.Types.ObjectId,
+         ref: 'Alumno',
+      },
+      
+   ],
+   padreId: [
+      {
+         type: Schema.Types.ObjectId,
+         ref: 'Padre',
+      },
+      
+   ]
+   
+
 });
 savePassword(AdministrativosSchema);
 comparePassword(AdministrativosSchema);

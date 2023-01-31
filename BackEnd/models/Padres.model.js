@@ -13,6 +13,7 @@ import {
    passwordSubSchema,
    provinciaSubSchema,
    telefonoSubSchema,
+   direccionSubSchema,
    tokenSubSchema,
 } from './model.js';
 const PadresSchema = new Schema({
@@ -28,7 +29,7 @@ const PadresSchema = new Schema({
    habilitado: habilitadoSubSchema,
    codigoPostal: codigoPostalSubSchema,
    localidad: localidadSubSchema,
-   provicia: provinciaSubSchema,
+   provincia: provinciaSubSchema,
    rol: {
       type: String,
       value: 'Padre',

@@ -8,6 +8,7 @@ import {
    comprobarToken,
    nuevoPasword,
 } from '../helpers/controllers.js';
+import { emailConfirm } from '../helpers/sendEmail.js';
 export const registrar = async (req, res) => {
    const { email } = req.body;
    const admin = await Admin.findOne({ email });

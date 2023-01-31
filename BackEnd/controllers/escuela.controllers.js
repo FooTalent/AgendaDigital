@@ -9,6 +9,8 @@ import {
    olvidePassword,
    registro,
    traerAdministrativos,
+   traerAdmPreDo,
+   traerAlumnos,
    traerPreceptores,
    traerProfesor,
 } from '../helpers/controllers.js';
@@ -23,6 +25,8 @@ export const agregarRegistroEscuela = agregarRegistro(Escuela);
 export const traerAdministrativosTodos = traerAdministrativos(Escuela);
 export const traerProfesorTodos = traerProfesor(Escuela);
 export const traerPreceptorTodos = traerPreceptores(Escuela);
+export const traerAlumnosTodos = traerAlumnos(Escuela);
+export const traerTodos = traerAdmPreDo(Escuela);
 export const perfilEscuela = async (req, res) => {
    const { escuela } = req;
    res.json(escuela);

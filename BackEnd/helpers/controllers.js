@@ -4,9 +4,10 @@ import generatorJWT from './generatorJWT.js';
 import Alumno from '../models/Alumnos.model.js';
 import Preceptor from '../models/Preceptor.model.js';
 import Profesor from '../models/Profesor.model.js';
-import { emailRegistro } from './sendEmail.js';
+import { emailRegistro, emailResetPassword } from './sendEmail.js';
 import Administrativo from '../models/Administrativos.model.js';
 import Admin from '../models/SuperAdmin.model.js';
+import Padre from '../models/Padres.model.js';
 export const registro = (model) => async (req, res) => {
    const { email, rol } = req.body;
    const { id } = req.params;
@@ -19,21 +20,36 @@ export const registro = (model) => async (req, res) => {
    }
    try {
       const nuevo = await model.create(req.body);
-      nuevo.token = generarId();
-      await nuevo.save();
-      // await emailRegistro(
-      //    nuevo.name,
-      //    nuevo.email,
-      //    nuevo.token,
-      //    'Comprueba tu cuenta en Aula Equis',
-      //    'Aula Equis - Confirmacion de cuenta'
-      // );
+
+
+
+
       if (nuevo.rol === 'Escuela') {
+
+         nuevo.token = generarId();
+         await nuevo.save();
+
+         await emailRegistro(
+            nuevo.name,
+            nuevo.email,
+            nuevo.token,
+            'Comprueba tu cuenta en Aula Equis',
+            'Aula Equis - Confirmacion de cuenta'
+         );
+
+
+
          admin.forEach(async (ad) => {
             await Admin.findByIdAndUpdate(ad._id, {
                $push: { escuelasRegistradas: nuevo._id },
             });
          });
+      }
+
+      else {
+         nuevo.confirmado = true;
+         nuevo.token = "";
+         await nuevo.save();
       }
       res.status(201).json({ message: 'Usuario creado correctamente' });
    } catch (error) {
@@ -67,6 +83,7 @@ export const autenticar = (model) => async (req, res) => {
       const error = new Error('Usuario no confirmado');
       return res.status(400).json({ error: error.message });
    }
+  
    if (await usuario.comparePassword(password)) {
       res.status(200).json({
          _id: usuario._id,
@@ -124,14 +141,14 @@ export const olvidePassword = (model) => async (req, res) => {
    try {
       usuario.token = generarId();
       await usuario.save();
-      //enviar mail
-      // await emailResetPassword(
-      //    usuario.name,
-      //    usuario.email,
-      //    usuario.token,
-      //    'Restablecer contraseña',
-      //    'Aula Equis - Restablecer contraseña'
-      // );
+      // enviar mail
+      await emailResetPassword(
+         usuario.name,
+         usuario.email,
+         usuario.token,
+         'Restablecer contraseña',
+         'Aula Equis - Restablecer contraseña'
+      );
       res.status(200).json('Se envió un mail para restablecer la contraseña');
    } catch (error) {
       res.status(500).json({ error: error.message });
@@ -169,6 +186,7 @@ export const agregarRegistro = (model) => async (req, res) => {
    const { id } = req.params;
    const { rol } = req.body;
    const existe = await model.findById(id);
+
    if (!existe) {
       const error = new Error('Escuela no encontrada');
       return res.status(400).json({ error: error.message });
@@ -176,7 +194,9 @@ export const agregarRegistro = (model) => async (req, res) => {
    switch (rol) {
       case 'Administrativo':
          const admins = await Administrativo.create(req.body);
-         admins.token = generarId();
+         // admins.token = generarId();
+         admins.token = "";
+         admins.confirmado = true;
          existe.administrativoId.push(admins._id);
          admins.agregadoPor = existe._id;
          await Promise.all([admins.save(), existe.save()]);
@@ -194,7 +214,9 @@ export const agregarRegistro = (model) => async (req, res) => {
          break;
       case 'Preceptor':
          const preceptor = await Preceptor.create(req.body);
-         preceptor.token = generarId();
+         // preceptor.token = generarId();
+         preceptor.token ="";
+         preceptor.confirmado = true;
          existe.preceptorId.push(preceptor._id);
          preceptor.agregadoPor = existe._id;
          await Promise.all([preceptor.save(), existe.save()]);
@@ -203,7 +225,9 @@ export const agregarRegistro = (model) => async (req, res) => {
          break;
       case 'Alumno':
          const alumno = await Alumno.create(req.body);
-         alumno.token = generarId();
+         // alumno.token = generarId();
+         alumno.token ="";
+         alumno.confirmado = true;
          existe.alumnoId.push(alumno._id);
          alumno.agregadoPor = existe._id;
          await Promise.all([alumno.save(), existe.save()]);
@@ -213,7 +237,9 @@ export const agregarRegistro = (model) => async (req, res) => {
          break;
       case 'Padre':
          const padre = await Padre.create(req.body);
-         padre.token = generarId();
+         // padre.token = generarId();
+         padre.token ="";
+         padre.confirmado = true;
          existe.padreId.push(padre._id);
          padre.agregadoPor = existe._id;
          await Promise.all([padre.save(), existe.save()]);
@@ -222,7 +248,10 @@ export const agregarRegistro = (model) => async (req, res) => {
          break;
       case 'Profesor':
          const profesor = await Profesor.create(req.body);
-         profesor.token = generarId();
+         
+         // profesor.token = generarId();
+         profesor.token="";
+         profesor.confirmado=true;
          existe.profesorId.push(profesor._id);
          profesor.agregadoPor = existe._id;
          await Promise.all([profesor.save(), existe.save()]);
@@ -271,13 +300,38 @@ export const traerPreceptores = (model) => async (req, res) => {
 };
 export const traerProfesor = (model) => async (req, res) => {
    const { id } = req.params;
-   const existe = await model
-      .findById(id)
-      .populate('profesorId', 'name email')
-      .populate('alumnoId', 'name email');
+   const existe = await model.findById(id)
+      // .populate('profesorId', 'name email')
+      // .populate('alumnoId', 'name email');
+   const profesores = await Profesor.find({ escuelaId: existe.escuelaId });
    if (!existe) {
       const error = new Error('Escuela no encontrada');
       return res.status(400).json({ error: error.message });
    }
-   res.status(200).json(existe);
+   res.status(200).json(profesores);
 };
+
+export const traerAlumnos = (model) => async (req, res) => {
+   const { id } = req.params;
+   const existe = await model.findById(id)
+   const alumnos = await Alumno.find({ escuelaId: existe.escuelaId });
+   if (!existe) {
+      const error = new Error('Escuela no encontrada');
+      return res.status(400).json({ error: error.message });
+   }
+   res.status(200).json(alumnos);
+
+}
+
+export const traerAdmPreDo = (model) => async (req, res) => {
+
+   const { id } = req.params;
+   const existe = await model.findById(id)
+   const administrativos = await Administrativo.find({
+      escuelaId: existe.escuelaId,
+   });
+   const preceptores = await Preceptor.find({ escuelaId: existe.escuelaId });
+   const profesores = await Profesor.find({ escuelaId: existe.escuelaId });
+   const collection =[...administrativos, ...preceptores, ...profesores]
+   res.status(200).json(collection);
+}

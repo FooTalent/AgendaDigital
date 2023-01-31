@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import Administrativo from '../models/Administrativos.model.js';
 import Escuela from '../models/Escuela.model.js';
 import Admin from '../models/SuperAdmin.model.js';
 
@@ -19,6 +20,9 @@ export const checkAuth = async (req, res, next) => {
             '-password -confirmado -token -createdAt -updatedAt -__v'
          );
          req.escuela = await Escuela.findById(decoded.id).select(
+            '-password -confirmado -token -createdAt -updatedAt -__v'
+         );
+         req.administrativo = await Administrativo.findById(decoded.id).select(
             '-password -confirmado -token -createdAt -updatedAt -__v'
          );
          //Todo: Check if this is needed
