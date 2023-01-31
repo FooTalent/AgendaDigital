@@ -35,12 +35,14 @@
 
 .itemProfile h4 {
     font-family: 'Inter';
-    font-weight: 600;
+    font-weight: 700;
     margin: 2rem 0 .5rem 0;
+    color: #26036E;
 }
 
 .itemProfile p {
     margin-bottom: .5rem;
+    color: #26036E;
 }
 
 
@@ -48,16 +50,32 @@
 
     .cardProfile {
         width: 90%;
-        height: 70%;
+        height: auto;
         background: #E6E0F2;
         margin-top: 3rem;
         border-radius: 1rem;
         display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
+    .imageProfile {
+        margin-left: 0;
+        margin-top: 0;
+    }
+
     .imageProfile img {
         width: 100%;
-        margin-left: 1rem;
+        margin-left: 0;
         margin-top: 1rem;
+    }
+
+    .containerInfoProfile {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 0;
     }
 }
