@@ -1,0 +1,32 @@
+.parrafoResetPass {
+    color: #26036E;
+    width: 50%;
+    margin-bottom: .1em;
+    margin-top: .2em;
+}
+
+.cancelar {
+    width: 25%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+
+@media screen and (max-width:834px) {
+    .parrafoResetPass {
+        width: 65%;
+        font-size: 14px;
+
+    }
+}
+
+@media screen and (max-width:530px) {
+    .parrafoResetPass {
+        width: 64%;
+        font-size: 11px;
+
+    }
+
+
+}

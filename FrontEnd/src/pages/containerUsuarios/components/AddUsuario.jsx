@@ -17,15 +17,12 @@ const AddUsuario = () => {
   const validateDni = (valores) => {
     if (!valores.target.value) {
       console.log('vacio');
-      setInputEmail('')
       setInputName("inputsForm valueInvalid");
     } else if (valores.target.value.length < 6) {
       console.log('falta');
-      setInputEmail('')
       setInputName("inputsForm valueInvalid");
     } else {
       console.log('ok');
-      setInputEmail('')
       setInputName("inputsForm valueValid");
     }
   };
@@ -33,17 +30,14 @@ const AddUsuario = () => {
   const validateEmail = (valores) => {
     
     if (!valores.target.value) {
-      setInputEmail('')
       setInputEmail("inputsForm valueInvalid");
       
     }
     else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(valores.target.value)) {
       
-      setInputEmail('')
       setInputEmail("inputsForm valueInvalid");
     }
     else {
-      setInputEmail('')
       setInputEmail("inputsForm valueValid");
       
     }
