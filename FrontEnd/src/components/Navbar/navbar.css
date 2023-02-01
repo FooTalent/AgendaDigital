@@ -22,15 +22,6 @@
     cursor: pointer;
 }
 
-.menuRoutes {
-    font-family: 'Inter';
-    font-weight: 700;
-}
-
-.routesNavBar p {
-    margin-left: 2%;
-}
-
 .hamburguer {
     display: none;
 }
@@ -51,13 +42,6 @@
 }
 .in{
     text-decoration: none;
-}
-
-.containerDirectedRoutes {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: .5rem;
-    margin-left: 1rem;
 }
 
 @media (max-width: 576px) {
@@ -134,7 +118,4 @@
         margin-top: 0;
     }
 
-    .routesNavBar {
-        margin-top: 1rem
-    }
 };
