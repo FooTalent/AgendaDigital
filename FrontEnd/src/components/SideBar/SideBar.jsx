@@ -71,12 +71,6 @@ const SideBar = () => {
               <p>Registro Usuarios</p>
             </div>
           </NavLink>
-          <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div className="route">
-              <img src="../img/iconConfig.svg" alt="" />
-              <p>Configuración</p>
-            </div>
-          </NavLink>
         </div>
         <NavLink to="/" className="containerBtnClose">
           <div className="btnClose">

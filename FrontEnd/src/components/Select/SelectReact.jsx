@@ -26,6 +26,12 @@ const SelectReact = () => {
           </Link>
         </div>
         <div className="selectNav">
+          <img className='imgSelect' src="../../../img/iconConfig.svg" alt="configuración" />
+          <Link to={"#"} className='miPerfilSelect'>
+            <p>Configuración</p>
+          </Link>
+        </div>
+        <div className="selectNav">
           <img className='imgSelect' src="../../../img/cerrarSesionSelect.svg" alt="cerrar sesion" />
           <Link to={"/"} className='closeSessionSelect'>
             <p>Cerrar sesión</p>
