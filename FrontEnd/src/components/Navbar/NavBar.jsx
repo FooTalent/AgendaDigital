@@ -5,7 +5,7 @@ import SelectReact from "../Select/SelectReact";
 import "./navbar.css";
 
 const NavBar = () => {
-  const { setEnabledSB, setEnabled, enabled, setMaximunWidth, directedRoute } = useContext(GlobalContext);
+  const { setEnabledSB, setEnabled, enabled, setMaximunWidth } = useContext(GlobalContext);
 
     const handlerSideBar = () => {
         setEnabledSB(false);
@@ -26,13 +26,6 @@ const NavBar = () => {
           <img src="../../../img/notification.svg" alt="notification" />
         </div>
         <SelectReact /> 
-      </div>
-      <div className="routesNavBar disableNavBar">
-        <div className="containerDirectedRoutes">
-            <span className="menuRoutes">Menú</span>
-            <p>{`>`} Dashboard </p>
-            { directedRoute ? <p>{`>`} {directedRoute}</p> : undefined }
-        </div>
       </div>
     </div>
   );

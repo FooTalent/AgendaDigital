@@ -5,7 +5,7 @@ import "./sideBar.css";
 
 const SideBar = () => {
   
-  const {setEnabledSB, enabledSB, setEnabled, setMaximunWidth, setDirectedRoute} = useContext(GlobalContext);
+  const {setEnabledSB, enabledSB, setEnabled, setMaximunWidth} = useContext(GlobalContext);
 
     let activeStyles = {
         color: "#fff",
@@ -20,9 +20,6 @@ const SideBar = () => {
       setMaximunWidth(true)
     };
 
-    const directedRoute = (route) => {
-      setDirectedRoute(route);
-    };
  
   return (
     <div className={`containerSideBar ${enabledSB ? "disabledSB" : null}`}>
@@ -39,43 +36,43 @@ const SideBar = () => {
       <div className="containerRoutes">
         <div className="routes">
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div onClick={() => directedRoute("Alumnos")} className="route">
+            <div className="route">
               <img src="../img/iconAlumnos.svg" alt="" />
               <p>Alumnos</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div onClick={() => directedRoute("Asistencia")} className="route">
+            <div className="route">
               <img src="../img/iconAsistencia.svg" alt="" />
               <p>Asistencia</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div onClick={() => directedRoute("Tareas")} className="route">
+            <div className="route">
               <img src="../img/iconTareas.svg" alt="" />
               <p>Tareas</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div onClick={() => directedRoute("Exámenes")} className="route">
+            <div className="route">
               <img src="../img/iconExamenes.svg" alt="" />
               <p>Exámenes</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div onClick={() => directedRoute("Incidencias")} className="route">
+            <div className="route">
               <img src="../img/iconIncidencias.svg" alt="" />
               <p>Incidencias</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to='/usuarios/all' >
-            <div onClick={() => directedRoute("Registro usuarios")} className="route">
+            <div className="route">
               <img src="../img/iconRegistroUsuario.svg" alt="" />
               <p>Registro Usuarios</p>
             </div>
           </NavLink>
           <NavLink style={({isActive}) => isActive ? activeStyles : undefined } className="editNavLink" to="/">
-            <div onClick={() => directedRoute()} className="route">
+            <div className="route">
               <img src="../img/iconConfig.svg" alt="" />
               <p>Configuración</p>
             </div>
