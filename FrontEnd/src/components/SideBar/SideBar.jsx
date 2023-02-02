@@ -5,7 +5,7 @@ import "./sideBar.css";
 
 const SideBar = () => {
   
-  const {setEnabledSB, enabledSB, setEnabled, setMaximunWidth} = useContext(GlobalContext);
+  const {setEnabledSB, enabledSB, setEnabled, setMaximunWidth, nameUser} = useContext(GlobalContext);
 
     let activeStyles = {
         color: "#fff",
@@ -30,13 +30,12 @@ const SideBar = () => {
   return (
     <div className={`containerSideBar ${enabledSB ? "disabledSB" : null}`}>
       <div className="school">
-        <p>ESCUELA</p>
+        <p>{ nameUser }</p>
         <div onClick={closeBtn} className="btnCloseSideBar">X</div>
       </div>
       <div className="user">
         <Link className="logoSchool" to={"/dashboard"}>
           <img src="../img/logoAulaEquis.svg" alt="imagen de usuario" />
-          <h3>Aula Equis</h3>
         </Link>
       </div>
       <div className="containerRoutes">
