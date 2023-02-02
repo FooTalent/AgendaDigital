@@ -1,11 +1,21 @@
 import './selectReact.css'
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const SelectReact = () => {
     const [deploymentSelect, setDeploymentSelect] = useState(false);
 
     const deployment = () => deploymentSelect === false ? setDeploymentSelect(true) : setDeploymentSelect(false);
+
+    let activeStyle = { 
+      color: "var(--bg-btn)",
+      textDecoration: "none"
+    };
+  
+    let styleDefaultText = {
+      textDecoration: "none",
+      color: "var(--bg-btn)",
+    };
     
   return (
     <div>
@@ -21,21 +31,21 @@ const SelectReact = () => {
       >
         <div className="selectNav">
           <img className='imgSelect' src="../../../img/userSelect.svg" alt="usuario" />
-          <Link to={"/profile"} className='miPerfilSelect'>
-            <p>Mi perfil</p>
-          </Link>
+          <NavLink style={({isActive}) => isActive ? activeStyle : styleDefaultText} to={"/profile"} className='miPerfilSelect'>
+            <p className='textSelectNav'>Mi perfil</p>
+          </NavLink>
         </div>
         <div className="selectNav">
           <img className='imgSelect' src="../../../img/iconConfig.svg" alt="configuración" />
-          <Link to={"#"} className='miPerfilSelect'>
-            <p>Configuración</p>
-          </Link>
+          <NavLink style={({isActive}) => isActive ? activeStyle : styleDefaultText} to={"#"} className='miPerfilSelect'>
+            <p className='textSelectNav'>Configuración</p>
+          </NavLink>
         </div>
         <div className="selectNav">
           <img className='imgSelect' src="../../../img/cerrarSesionSelect.svg" alt="cerrar sesion" />
-          <Link to={"/"} className='closeSessionSelect'>
-            <p>Cerrar sesión</p>
-          </Link>
+          <NavLink style={({isActive}) => isActive ? activeStyle : styleDefaultText} to={"/"} className='closeSessionSelect'>
+            <p className='textSelectNav'>Cerrar sesión</p>
+          </NavLink>
         </div>
       </div>
     </div>

@@ -57,6 +57,10 @@
     text-decoration: none;    
 }
 
+/* .textSelectNav {
+    
+} */
+
 @media (max-width: 576px) {
 
     .selectContainer {
