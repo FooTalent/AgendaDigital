@@ -6,7 +6,7 @@ import { GlobalContext } from '../../Context/GlobalContext';
 
 const SelectReact = () => {
     const [deploymentSelect, setDeploymentSelect] = useState(false);
-    const { nameUser } = useContext(GlobalContext);
+    const { nameUser, setNameUser } = useContext(GlobalContext);
 
     const deployment = () => deploymentSelect === false ? setDeploymentSelect(true) : setDeploymentSelect(false);
 
@@ -19,6 +19,11 @@ const SelectReact = () => {
       textDecoration: "none",
       color: "var(--bg-btn)",
     };
+
+    const closeSession = () => {
+      setNameUser("");
+    };
+    
   return (
     <div>
       <div onClick={deployment} className="selectContainer">
@@ -45,7 +50,7 @@ const SelectReact = () => {
         </div>
         <div className="selectNav">
           <img className='imgSelect' src="../../../img/cerrarSesionSelect.svg" alt="cerrar sesion" />
-          <NavLink style={({isActive}) => isActive ? activeStyle : styleDefaultText} to={"/"} className='closeSessionSelect'>
+          <NavLink onClick={closeSession} style={({isActive}) => isActive ? activeStyle : styleDefaultText} to={"/"} className='closeSessionSelect'>
             <p className='textSelectNav'>Cerrar sesión</p>
           </NavLink>
         </div>
