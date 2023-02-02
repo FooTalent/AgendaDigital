@@ -1,9 +1,12 @@
 import './selectReact.css'
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { GlobalContext } from '../../Context/GlobalContext';
 
 const SelectReact = () => {
     const [deploymentSelect, setDeploymentSelect] = useState(false);
+    const { nameUser } = useContext(GlobalContext);
 
     const deployment = () => deploymentSelect === false ? setDeploymentSelect(true) : setDeploymentSelect(false);
 
@@ -16,12 +19,11 @@ const SelectReact = () => {
       textDecoration: "none",
       color: "var(--bg-btn)",
     };
-    
   return (
     <div>
       <div onClick={deployment} className="selectContainer">
         <img className="userSelect" src="../../../img/user.svg" alt="user" />
-        <p className='disabledUserMobile'>Admin</p>
+        <p className='disabledUserMobile'>{ nameUser }</p>
         <img src="../../../img/despliegueSelect.svg" alt="flecha" />
       </div>
       <div
