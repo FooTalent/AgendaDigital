@@ -110,39 +110,32 @@
     margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     padding-bottom: .2%;
     padding-top: 2%;
-    background-color: #E6E0F2;
+    background-color: var(--white);
+    border: solid 2px #26036E;
+    border-radius: 8px;
     width: 100%;
+    padding: 6px;
 }
 
-input:focus {
-    background-color: #E6E0F2;
-    
-}
 
 .password2 {
     margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     padding-bottom: .2%;
     padding-top: 2%;
-    background-color: #E6E0F2;
+    background-color: var(--white);
     width: 100%;
+    border: solid 2px #26036E;
+    border-radius: 8px;
+    padding: 6px;
+    
 } 
 
 .valueInvalid {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: red;
-    background-color: #E6E0F2;
+    border: solid 2px red;
 }
 
 .divPass2{
@@ -173,7 +166,10 @@ button:disabled {
 }
 
 .btnIconEmail{
-    padding: 0%;
+    width: 1.6em;
+    height: 1.8em;
+    margin-top: 9px;
+    margin-left: -32px;
 }
 
 .imgEmail {
@@ -182,9 +178,10 @@ button:disabled {
 }
 
 .imgPass{
-
     width: 1.6em;
     height: 1.8em;
+    margin-top: 9px;
+    margin-left: -32px;    
 } 
 
 .btnIconPass {

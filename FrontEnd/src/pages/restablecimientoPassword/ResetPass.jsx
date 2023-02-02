@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import '../reseteoDePassword/envioEmail.css';
 import '../../../src/components/Login/login.css';
 import './resetpass.css';
 import { NavLink } from 'react-router-dom';
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -17,7 +17,24 @@ const ResetPass = () => {
     const reEntryPass = () => setRejected(false)
 
     const navigate = useNavigate()
-        
+    const {token} = useParams()
+    useEffect(() => {
+        axios.get(`https://aulax.onrender.com/api/escuela/olvide-password/${token}`)
+            .then(res => {
+                setRejected(false)                                                
+            })
+            .catch(err => {
+                setRejected(true)
+                console.log(err);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'El sitio al que desea acceder no existe',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            })
+    }, [])
 
     const envioEmail = (e) =>{
         e.preventDefault();
@@ -27,7 +44,7 @@ const ResetPass = () => {
 
         if (e.target.password.value === e.target.passwordRepet.value) {
             console.log('hola');
-            axios.post('http://localhost:4001/api/admin/olvide-password/pg46jg7k0s1gn3ca9ju', password)
+            axios.post(`https://aulax.onrender.com/api/escuela/olvide-password/${token}`, password)
             .then(res => {
                 setRejected(false)
                 navigate('/dashboard');                      
@@ -38,7 +55,7 @@ const ResetPass = () => {
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'Error 404.',
+                    title: 'No se ha podido restablecer el password',
                     showConfirmButton: false,
                     timer: 2000
                 })

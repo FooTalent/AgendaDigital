@@ -21,7 +21,7 @@ const AgendaRoutes = () => {
                 <Route path='/' element={ <Home/> }/>
                 <Route path='/login' element={ <Login/> }/>
                 <Route path='/login/envioemail' element={ <RestablecimientoDePass/> }/> 
-                <Route path='/login/resetpassword' element={ <ResetPass/>}/> 
+                <Route path='/login/resetpassword/:token' element={ <ResetPass/>}/> 
                 {/* <Route path='/dashboard/' element={ <Dashboard/> }/> */}
                 <Route path='/usuarios' element={ <ContainerUsuarios/> }/>                
                 <Route path='/dashboard' element={ <Dashboard/> }/>
