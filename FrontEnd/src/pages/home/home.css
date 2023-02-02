@@ -1,5 +1,5 @@
 .containerLogin{
-    background-image: url(../../../public/img/bg-nuevo.svg);
+    background-image: url(/img/bg-nuevo.svg);
     height: 100vh;
     width: 100%; 
     background-repeat: no-repeat;

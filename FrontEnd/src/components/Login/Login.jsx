@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
+import { GlobalContext } from "../../Context/GlobalContext";
 import './login.css'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 
 
@@ -16,6 +16,7 @@ const Login = () => {
     const [inputEmail, setinputEmail] = useState('email2');
     const [btnIniciarSesion, setbtnIniciarSesion] = useState('pButton');
     const navigate = useNavigate();
+    const { setNameUser } = useContext(GlobalContext);
  
  
     const visible = () => {
@@ -50,9 +51,7 @@ const Login = () => {
                         setinputEmail('email2 valueInvalid')
                     } else {
                         setinputEmail('email2')
-                    }
-
-                                        
+                    }                 
                     if (!values.password) {
                         setinputPass('password2 valueInvalid ')
                     } else{
@@ -63,17 +62,22 @@ const Login = () => {
                 }}
             
 
-                onSubmit={(values, {resetForm}) => {
+                onSubmit={(values, {resetForm, setSubmitting}) => {
 
                     resetForm();
                     console.log('enviado');
                     setFormSubmmit(true);
                     setbtnIniciarSesion('pButton none')
-                    setTimeout(() =>  setFormSubmmit(false), 1000 );
+                    setTimeout(() => {
+                        setFormSubmmit(false)
+                        setSubmitting(false)
+                        ,1000 
+                    });
 
-                    axios.post('https://agendadigital.onrender.com/api/auth/login', values)
+                    axios.post('https://aulax.onrender.com/api/escuela/login', values)
 
                     .then(res => {
+                        setNameUser(res.data.name);
                         setRejected(false)
                         navigate('/dashboard')
 
@@ -85,8 +89,15 @@ const Login = () => {
                 }}
 
                 >
-                    {() => (
-                        <Form className='formLogin'>
+                    {({handleSubmit}) => (
+                        <Form
+                            onKeyPress={(event) => {
+                                if (event.key === 'Enter') {
+                                console.log('hola');
+                                handleSubmit();
+                                }
+                            }}
+                            className='formLogin'>
                             <div className='divNameSchool'><p className='nameSchool'>SCHOOL</p></div>
                             <div className='titleLogin'><h1>INICIAR SESIÓN</h1></div>
                             <div className='containerForm'>
@@ -99,7 +110,8 @@ const Login = () => {
                                     </div>
                                 </div>
                                 <div className='containerPass2'>
-                                    <Field onKeyUp={reEntryPass} id = "password" name="password" type = {hidden} className={inputPass} placeholder='Contraseña'/> 
+                                    <Field onKeyUp={reEntryPass}                                    
+                                    id = "password" name="password" type = {hidden} className={inputPass} placeholder='Contraseña'/> 
                                     <div>
                                         <button className='btnIconPass' onClick={visible}>
                                             <Link><img className='imgPass' src={img} alt="" /></Link>   
@@ -109,10 +121,13 @@ const Login = () => {
                                 <NavLink to={'/login/envioemail'}  className='olvidoPass'><span>¿Olvido su contraseña?</span></NavLink>
                                 {rejected && <p className='error'>Verifique los datos ingresados.</p>}
                                 <div className='divButtonSession'>
-                                <Field className={btnIniciarSesion} type="submit" value="Iniciar sesión"/>
+                                <Field 
+                                className={btnIniciarSesion} 
+                                type="submit" 
+                                value="Iniciar sesión"
+                                />                                
                                 </div>
                                 {formSubmmit && <img className='ringsLoader' src='./img/ringsLoader.svg'/>}
-
                             </div>
                         </Form>
                     )}

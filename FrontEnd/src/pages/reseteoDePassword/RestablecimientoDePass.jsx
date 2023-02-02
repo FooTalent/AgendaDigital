@@ -1,4 +1,3 @@
-import React from 'react';
 import './envioEmail.css';
 import '../../../src/components/Login/login.css';
 import { NavLink } from 'react-router-dom';
@@ -8,6 +7,8 @@ import axios from 'axios';
 
 
 const RestablecimientoDePass = () => {
+
+    
     const navigate = useNavigate()
 
     const sendEmail = (e) =>{
@@ -17,7 +18,7 @@ const RestablecimientoDePass = () => {
         }
 
 
-        axios.post('http://localhost:4001/api/admin/olvide-password', userRegistered)
+        axios.post('https://aulax.onrender.com/api/escuela/olvide-password', userRegistered)
         .then(res => {
             Swal.fire({
                 position: 'center',
