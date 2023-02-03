@@ -70,9 +70,8 @@ const Login = () => {
                     setbtnIniciarSesion('pButton none')
                     setTimeout(() => {
                         setFormSubmmit(false)
-                        setSubmitting(false)
-                        ,1000 
-                    });
+                        setSubmitting(false)                         
+                    },1000);
 
                     axios.post('https://aulax.onrender.com/api/escuela/login', values)
 
@@ -87,7 +86,6 @@ const Login = () => {
                         setbtnIniciarSesion('pButton')}
                         )
                 }}
-
                 >
                     {({handleSubmit}) => (
                         <Form
