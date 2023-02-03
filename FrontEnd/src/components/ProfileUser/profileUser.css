@@ -25,6 +25,10 @@
     margin: 1.5rem 0 0 1.5rem;
 }
 
+.imageProfile img {
+    cursor: pointer;
+}
+
 .containerInfoProfile {
     width: 75%;
     height: 100%;
