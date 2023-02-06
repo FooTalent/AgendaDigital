@@ -88,7 +88,7 @@ const AllUsuarios = ({ search }) => {
                 showConfirmButton: false,
                 timer: 2000,
               });
-              // console.log(res.data);
+              
             });
      
       }})

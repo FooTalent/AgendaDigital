@@ -15,7 +15,7 @@ const NavbarTools = ({ captureSearch }) => {
   } = useContext(GlobalContext);
 
   const btnNext = () => {
-    console.log(firstindex);
+    
     if (users.length -1< firstindex) return;
     const nextpage = pagActual + 1;
     const nextpage2 = pagActual2 + 1;
@@ -24,7 +24,7 @@ const NavbarTools = ({ captureSearch }) => {
    
     setpagActual(nextpage);
     setpagActual2(nextpage2)
-    // console.log(firstindex);
+  
   };
 
   const btnPrev = () => {
@@ -33,13 +33,10 @@ const NavbarTools = ({ captureSearch }) => {
     setfirstindex(prevpage * pagxhoja);
     setfirstindex2( prevpage * 5)
     setpagActual(prevpage);
-    // console.log(pagActual);
+    
   };
 
-  // useEffect(() => {
-  //   console.log(pagActual);
-  // }, [pagxhoja]);
-
+ 
   return (
     <div className="navbarTools">
       <div className="navbarTools-filter1">

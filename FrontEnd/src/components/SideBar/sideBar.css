@@ -18,6 +18,11 @@
     color: #fff;
 }
 
+.logoSchool {
+    text-decoration: none;
+    text-align: center;
+}
+
 .user {
     display: flex;
     flex-direction: column;
@@ -30,6 +35,10 @@
 .user h3 {
     color: #fff;
     margin-top: .5rem;
+}
+
+.user img {
+    width: 35%;
 }
 
 .containerRoutes {
@@ -67,6 +76,13 @@
 .editNavLink {
     text-decoration: none;
     margin-left: 5%;
+    width: 100%;
+}
+
+.editNavLink:hover {
+    background-Color: #6889FF;
+    width: 100%;
+    margin-left: 0;
 }
 
 .containerBtnClose {
@@ -91,6 +107,10 @@
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.35);
 }
 
+.btnCloseSideBar {
+    display: none;
+}
+
 .btnClose p{
     margin-left: 1.5rem;
     color: var(--white);
@@ -108,6 +128,7 @@
     }
 
    .btnCloseSideBar {
+    display: inline;
     margin-left: 55%;
     color: #fff;
     font-size: 1.2rem;
@@ -119,9 +140,24 @@
 
 }
 
-@media (min-width: 577px) and (max-width: 1920px) {
-
-    .btnCloseSideBar {
-        display: none;
+@media (min-width: 577px) and (max-width: 992px) {
+    .containerSideBar {
+        width: 90%;
     }
+
+    .school p{
+        position: relative;
+        left: 30%;
+    }
+
+   .btnCloseSideBar {
+    display: inline;
+    margin-left: 55%;
+    color: #fff;
+    font-size: 1.2rem;
+   }
+
+   .disabledSB {
+    display: none;
+   }
 }
