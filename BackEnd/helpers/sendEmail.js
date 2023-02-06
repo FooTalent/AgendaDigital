@@ -27,7 +27,7 @@ export const emailResetPassword = async (name, email, token, subject, text) => {
          text: text,
          html: `<p>Hola: ${name} has solicitado reestablecer tu password</p>
            <p>Sigue el siguiente enlace para generar un nuevo password:
-            <a href="http://localhost:3000/api/admin/olvide-password/${token}">Reestablecer Password</a>
+            <a href="https://aulax.vercel.app/login/resetpassword/${token}">Reestablecer Password</a>
             <p>Si tu no solicitaste este email, puedes ignorar el mensaje</p>`,
       });
       console.log('enviado');
