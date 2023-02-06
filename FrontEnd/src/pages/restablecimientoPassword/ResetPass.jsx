@@ -25,7 +25,7 @@ const ResetPass = () => {
             })
             .catch(err => {
                 setRejected(true)
-                console.log(err);
+                
                 Swal.fire({
                     position: 'center',
                     icon: 'error',
@@ -70,7 +70,7 @@ const ResetPass = () => {
                         })
                         .catch(err => {
                             setRejected(true)
-                            console.log(err);
+                            
                             Swal.fire({
                                 position: 'center',
                                 icon: 'error',
@@ -85,7 +85,7 @@ const ResetPass = () => {
                             <Form 
                             onKeyPress={(event) => {
                                 if (event.key === 'Enter') {
-                                console.log('hola');
+                                
                                 handleSubmit();
                                 }
                             }}

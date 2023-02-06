@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useState } from 'react';
 
 
 const RestablecimientoDePass = () => {
@@ -54,7 +55,7 @@ const RestablecimientoDePass = () => {
                             navigate('/login'); //TODAVIA NO ESTA CREADA LA LANDING PERO LA IDEA ES QUE CUANDO SE ENVIE EL EMAIL REDIRIJA A LA LANDING                     
                         })
                         .catch(err => {
-                            console.log(err);
+                            
                             setbtnIniciarSesion('pButton')
                             setinputEmail('email2 valueInvalid')
                             Swal.fire({
@@ -71,7 +72,7 @@ const RestablecimientoDePass = () => {
                         <Form 
                             onKeyPress={(event) => {
                                 if (event.key === 'Enter') {
-                                console.log('hola');
+                                
                                 handleSubmit();
                                 }
                             }}
