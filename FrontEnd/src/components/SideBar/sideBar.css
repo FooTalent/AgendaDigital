@@ -18,6 +18,11 @@
     color: #fff;
 }
 
+.logoSchool {
+    text-decoration: none;
+    text-align: center;
+}
+
 .user {
     display: flex;
     flex-direction: column;
@@ -30,6 +35,10 @@
 .user h3 {
     color: #fff;
     margin-top: .5rem;
+}
+
+.user img {
+    width: 35%;
 }
 
 .containerRoutes {
